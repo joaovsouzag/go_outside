@@ -9,7 +9,7 @@
   <% end %>
 <% end %>
 
-<% if current_user.favorites != nil %>
+<% if current_user.favorites != [] %>
 <%= link_to "Unfavorite",
                     location_favorite_path(@location),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2 p-3"
