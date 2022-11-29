@@ -5,29 +5,24 @@
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
         <div class="form-inputs">
           <%= f.input :email,
-                      placeholder: 'user@domain.com',
-                      label: false,
                       required: false,
                       autofocus: true,
                       input_html: { autocomplete: "email" } %>
         </div>
         <div class="user-box">
           <%= f.input :password,
-                      placeholder: 'password',
-                      label: false,
                       required: false,
                       input_html: { autocomplete: "current-password" } %>
         </div>
     </div>
+        <div class="form-actions">
+          <a class="btn btn-ghost" href="#"> CONTINUE </a>
+          <%= f.button :submit, "Continue", class: "btn btn-ghost" %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        <div class="button-box">
-          <div class="form-actions">
-            <%= link_to "LOGIN",  user_session_path, :class=> "btn",  id: "login-btn" %>
-            <%= link_to "SIGNUP", new_user_registration_path, :class=> "btn",  id: "signup-btn" %>
-            <%= link_to "Forgot Password", new_password_path(resource_name), :class=> "btn",  id: "forgot-btn" %>
-          </div>
         </div>
       <% end %>
+
+      <%= render "devise/shared/links" %>
     </div>
   </form>
 </div>
