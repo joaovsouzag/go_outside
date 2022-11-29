@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :locations, only: [:index, :show] do
     resources :feedbacks, only: [:new, :create, :destroy]
     resources :check_ins, only: [:index, :create, :destroy]
+    resources :favorites, only: [:index, :create, :destroy]
   end
 
   resources :users, only: [:show] do
