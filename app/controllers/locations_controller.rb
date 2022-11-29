@@ -6,6 +6,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    authorize @locations
+    @location = Location.find(params[:id])
+    @checkin = CheckIn.new
+    authorize @location
   end
 end
