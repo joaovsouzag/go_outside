@@ -1,28 +1,36 @@
-<h2>Sign up</h2>
+<div class="signup-box">
+  <h2>Sign up</h2>
+  <form>
+    <div class="us-box">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+        <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :username,
-                required: true %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :birthdate, as: :date, html5: true,
-                required: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-<%= render "devise/shared/links" %>
+        <div class="form-inputs">
+          <%= f.input :username,
+                      required: true %>
+          <%= f.input :email,
+                      placeholder: 'user@domain.com',
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      placeholder: 'needs to match with the password',
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :birthdate, as: :date, html5: true,
+                      required: true %>
+        </div>
+        <div class="button-box">
+          <div class="form-actions">
+            <%= link_to "Log In",  user_session_path, :class=> "btn",  id: "login-btn" %>
+            <%= link_to "Sign Up", new_user_registration_path, :class=> "btn",  id: "signup-btn" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </form>
+</div>
