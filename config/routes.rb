@@ -15,4 +15,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :favorites, only: [:index, :create]
   end
+
+  resources :pages do
+    collection do
+      get :home
+    end
+  end
 end

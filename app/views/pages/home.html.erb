@@ -1,2 +1,69 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="hero">
+  <a href="/locations/index">
+    <button id="btn-home" class="d-flex btn-homeg">
+      <p id="btn-text">Get Started</p>
+      <%= image_tag "discoball.png", id:"disco" %>
+    </button>
+  </a>
+</div>
+
+<div>
+  <%= image_tag "infohome.png", id:"infohome" %>
+</div>
+
+<div id="usefilter" class="d-flex flex-column">
+  <h3 id="header1">Use our filters</h3>
+  <h1 id="header2" class="blue-text">Filter party locations by:</h1>
+  <div class="w-75">
+    <div class="d-flex justify-content-between">
+      <div class="info-box">
+        <p class="inside-title">City/Neighborhood</p>
+        <p class="inside-text">See what's happening in nearby cities/neighborhoods.</p>
+      </div>
+      <div class="info-box">
+        <p class="inside-title">Music Type</p>
+        <p class="inside-text">See what type of music is playing there: Rock, Rap, House and more!</p>
+      </div>
+      <div class="info-box">
+        <p class="inside-title">Average Age</p>
+        <p class="inside-text">Choose the age range that you are looking for.</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between mt-5">
+      <div class="info-box">
+        <p class="inside-title">Place Type</p>
+        <p class="inside-text">From night clubs to restaurants, you can choose more than one!</p>
+      </div>
+      <div class="info-box">
+        <p class="inside-title">By Place</p>
+        <p class="inside-text">Already know where you want to go? check the vibe there!</p>
+      </div>
+      <div class="info-box">
+        <p class="inside-title">By Distance</p>
+        <p class="inside-text">Choose the longest distance you're willing to travel for a party!</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="aboutus">
+  <div class="d-flex align-items-center">
+  <%= image_tag "logos/logo.png", id: "aboutusimg"%>
+  </div>
+  <div id="aboutustext">
+  <p id="aboutus1">About Us</p>
+  <p id="aboutus2">Get to know us!</p>
+  <p id="aboutus3">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+  </div>
+
+</div>
+
+<div id="lastpart">
+  <a href="/locations/index">
+    <button id="btn-last" class="d-flex btn-homeg">
+      <p id="btn-text">Get Started</p>
+      <%= image_tag "discoball.png", id:"disco" %>
+    </button>
+  </a>
+</div>
