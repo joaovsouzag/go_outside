@@ -101,6 +101,7 @@ body {
   animation: btn-anim1 1s linear infinite;
 }
 
+
 @keyframes btn-anim1 {
   0% {
     left: -100%;
@@ -149,15 +150,15 @@ body {
 }
 
 .button-box {
-  margin-left: 30px;
   margin-top: -50px;
 }
 #signup-btn {
-  margin-left: 3px;
+  margin-left: 25px;
+  margin-left: 5px;
 }
 
 #forgot-btn {
-  margin-left: -10px;
+  margin-left: 25px;
   margin-top: 10px;
 }
 
