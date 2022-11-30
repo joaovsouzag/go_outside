@@ -1,0 +1,47 @@
+.footer {
+  background: black;
+  opacity: 80%;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: rgba(0,0,0,0.3);
+}
+
+.footer-links {
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 680px;
+}
+
+.footer-links a {
+  color: $light-gray;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  color: $gray-medium;
+  opacity: 1;
+}
+
+.institutional a {
+  color: white;
+  text-decoration: none;
+  margin: 4px;
+}
+
+.institutional a:hover {
+  color: $gray-medium;
+  opacity: 1;
+}
+
+.footer-logo {
+  height: 80px;
+  width: 206px;
+  background-image: url(“logo-png.png”);
+  background-size: cover;
+  background-position: center;
+}
