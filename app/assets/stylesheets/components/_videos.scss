@@ -1,0 +1,15 @@
+.carousel-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  max-width: 100px;
+  max-height: 500px;
+}
+
+.carousel-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
