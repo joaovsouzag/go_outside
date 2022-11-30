@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="locations">
+        <% @locations.each do |location| %>
+          <h4><%= location.name %></h4>
+          <p><%= location.address %></p>
+          <p><%= location.location_type %></p>
+          <p><%= location.photos %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= form_with url: locations_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a location"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>

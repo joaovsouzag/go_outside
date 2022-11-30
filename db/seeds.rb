@@ -30,3 +30,40 @@ CheckIn.create!( user_id: "1" , location_id: "4")
 CheckIn.create!( user_id: "2" , location_id: "3")
 CheckIn.create!( user_id: "3" , location_id: "2")
 CheckIn.create!( user_id: "4" , location_id: "1")
+
+
+require "open-uri"
+require "yaml"
+
+file = "https://gist.githubusercontent.com/dmilon/e897669bfa411bfdd92c9f59f91dd6fe/raw/d1e1b06e25616771fddf44bf066765f518b0655d/imdb.yml"
+sample = YAML.load(URI.open(file).read)
+
+puts "Creating users..."
+users = {}  # slug => Userr
+sample["users"].each do |user|
+  users[user["slug"]] = User.create! user.slice("email", "password", "birth_date", "username", "avatar")
+end
+
+puts "Creating feedbacks..."
+users = {}  # slug => Userr
+sample["feedbacks"].each do |feedback|
+  feedbacks[feedback["slug"]] = Feedback.create! feedback.slice("user_id", "location_id", "photo", "video", "comment", "rating")
+end
+
+puts "Creating checkins..."
+users = {}  # slug => Userr
+sample["checkins"].each do |checkin|
+  checkins[checkin["slug"]] = Checkin.create! checkin.slice("user_id", "location_id")
+end
+
+puts "Creating locations..."
+users = {}  # slug => Userr
+sample["locations"].each do |location|
+  locations[location["slug"]] = Location.create! location.slice("address", "name", "location_type", "photo")
+end
+
+puts "Creating favorites..."
+users = {}  # slug => Userr
+sample["favorites"].each do |favorite|
+  favorites[favorite["slug"]] = Favorite.create! favorite.slice("user_id", "location_id")
+end
