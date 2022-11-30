@@ -1,0 +1,45 @@
+.mosaico {
+  font-family: sans-serif;
+  background-color: #2D2D2D;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  color: #53B4D2;
+  font-weight: bold;
+  text-shadow: rgb(255, 255, 255) 0.0em 0.1em 0.2em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 1px;
+  grid-auto-rows: minmax(180px, auto);
+  grid-auto-flow: dense;
+  padding: 1px;
+}
+
+.grid-item {
+  padding: 1rem;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(66, 66, 66);
+  background-color: #727272;
+  border-radius: 10px;
+}
+
+.span-2 {
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+}
+
+.span-3 {
+  grid-column-end: span 3;
+  grid-row-end: span 4;
+}

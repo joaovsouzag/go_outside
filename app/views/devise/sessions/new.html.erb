@@ -1,34 +1,36 @@
-<div class="login-box">
-  <h2>Login</h2>
-  <form>
-    <div class="user-box">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
+<div class="login-background">
+  <div class="login-box">
+    <h2>Login</h2>
+    <form>
+      <div class="user-box">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
 
-        <div class="form-inputs">
-          <%= f.input :email,
-                      placeholder: 'user@domain.com',
-                      label: false,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-        </div>
-        <div class="user-box">
-          <%= f.input :password,
-                      placeholder: 'password',
-                      label: false,
-                      required: false,
-                      input_html: { autocomplete: "current-password" } %>
-        </div>
-    </div>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        <div class="button-box">
-          <div class="form-actions">
-            <%= link_to "Log In",  user_session_path, :class=> "btn",  id: "login-btn" %>
-            <%= link_to "Sign Up", new_user_registration_path, :class=> "btn",  id: "signup-btn" %>
-            <%= link_to "Forgot Password", new_password_path(resource_name), :class=> "btn",  id: "forgot-btn" %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        placeholder: 'user@domain.com',
+                        label: false,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
           </div>
-        </div>
-          <% end %>
-    </div>
-  </form>
+          <div class="user-box">
+            <%= f.input :password,
+                        placeholder: 'password',
+                        label: false,
+                        required: false,
+                        input_html: { autocomplete: "current-password" } %>
+          </div>
+      </div>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <div class="button-box">
+            <div class="form-actions">
+              <%= link_to "Log In",  user_session_path, :class=> "btn",  id: "login-btn" %>
+              <%= link_to "Sign Up", new_user_registration_path, :class=> "btn",  id: "signup-btn" %>
+              <%= link_to "Forgot Password", new_password_path(resource_name), :class=> "btn",  id: "forgot-btn" %>
+            </div>
+          </div>
+            <% end %>
+      </div>
+    </form>
+  </div>
 </div>

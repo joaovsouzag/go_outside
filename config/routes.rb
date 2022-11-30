@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+  get 'videos/index'
+  get 'images/index'
   get 'users/show'
   devise_for :users
   root to: "locations#index"
@@ -10,6 +13,9 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:new, :create, :destroy]
     resources :check_ins, only: [:index, :create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
+    resources :images, only: [:index]
+    resources :videos, only: [:index]
+    resources :comments, only: [:index]
   end
 
   resources :users, only: [:show] do
