@@ -1,7 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  height:80px;
+  height:70px;
+  width: 100%;
   background: rgb(0, 0, 0);
+  opacity: 90%;
+  position: fixed;
+  top: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -21,7 +25,7 @@
 }
 
 .cont {
-  height: 80px;
+  height: 70px;
   width: 206px;
   background-image: url("logos/logo.png");
   background-size: cover;
