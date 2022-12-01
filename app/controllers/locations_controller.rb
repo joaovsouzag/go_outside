@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
     @locations = policy_scope(Location)
     if params[:query].present?
       sql_query = "name ILIKE :query OR address ILIKE :query OR location_type ILIKE :query"
-      @locations = Location.where("name ILIKE ?", "%#{params[:query]}%")
+      @locations = Location.where(sql_query, query: "%#{params[:query]}%")
     else
       @locations
     end
