@@ -8,15 +8,20 @@
  <% end %>
 <% end %>
 
-<% if current_user.favorites != [] %>
+<%# <% def check_current_favorite
+  current_user.favorites.each do |favorite|
+    favorite.location_id != @location.id
+end%>
+
+<% if @check_favorite%>
+  <%= simple_form_for([@location, @favorite]) do |f| %>
+  <%= f.submit %>
+  <% end %>
+<% else %>
  <%= link_to "Unfavorite",
                     location_favorite_path(@location),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2 p-3"
                 %>
-<% else %>
- <%= simple_form_for([@location, @favorite]) do |f| %>
-    <%= f.submit %>
-  <% end %>
 <% end %>
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -33,9 +38,9 @@
       <div class="modal-body">
         <%= simple_form_for([@location, @feedback]) do |f| %>
         <h1>One Vibing Photo, please.</h1>
-           <%= f.input :photos, multiple: true, direct_upload: 'false', label: "One Vibing Photo, please.", required: false%>
+           <%= f.input :photos, as: :file, input_html: { multiple: true }%>
             <h1>One Vibing Video, please.</h1>
-           <%= f.input :videos, multiple: true, direct_upload: 'false', label: "One Vibing Video, please."%>
+           <%= f.input :videos, as: :file, input_html: { multiple: true }%>
             <h1>What do you think about place vibe?</h1>
            <%= f.input :comment, label: "What do you think about place vibe?"%>
             <h1>give a rate for it!</h1>

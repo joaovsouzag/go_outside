@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.where(location_id: @location.id).first
+    @favorite = Favorite.where(location_id: @location.id, user_id: current_user.id).first
     @favorite.destroy
     authorize @favorite
     redirect_to location_path
