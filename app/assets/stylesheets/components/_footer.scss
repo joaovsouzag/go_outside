@@ -1,12 +1,12 @@
 .footer {
   background: black;
-  opacity: 80%;
+  opacity: 90%;
   display: flex;
   align-items: center;
-  width: 100%;
   height: 60px;
+  width: 100%;
   padding-right: 10px;
-  padding-left: 10px;
+  padding-left: 30px;
   color: rgba(0,0,0,0.3);
   position: fixed;
   bottom: 0;
@@ -16,7 +16,7 @@
   color: white;
   display: flex;
   align-items: center;
-  padding-left: 680px;
+  padding-left: 710px;
 }
 
 .footer-links a {
@@ -34,6 +34,7 @@
   color: white;
   text-decoration: none;
   margin: 4px;
+  padding-left: 15px;
 }
 
 .institutional a:hover {
@@ -42,9 +43,5 @@
 }
 
 .footer-logo {
-  height: 80px;
-  width: 206px;
-  background-image: url(“logo-png.png”);
-  background-size: cover;
-  background-position: center;
+ padding-left: 10px;
 }

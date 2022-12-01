@@ -1,1 +1,190 @@
 // Specific CSS for your home-page
+.hero {
+  background-image: url("hero.png");
+  height: 600px;
+  width: auto;
+  background-position-y: top;
+  background-position-x: center;
+}
+
+#btn-home {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  top: 400px;
+  right: 65px;
+}
+
+.btn-homeg {
+  background: #172A30;
+  border-radius: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#disco {
+  width: 36.97px;
+  height: auto;
+  background: url(mirror-ball_1faa9.png);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  margin-left: 10px;
+}
+
+#btn-text {
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  margin: 0;
+
+  color: #FFFFFF;
+}
+
+#infohome {
+  width: 800px;
+  position: absolute;
+  top: 600px;
+  left: 20%;
+}
+
+#usefilter {
+  height: 800px;
+  width: 100%;
+  background-color: #272727;
+  align-items: center;
+}
+
+#header1 {
+  margin-top: 125px;
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  /* identical to box height, or 36px */
+  width: 186px;
+  height: 36px;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+}
+
+#header2 {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 62px;
+  text-align: center;
+  width: 613px;
+  height: 100px;
+  color: #53B4D2;
+}
+
+.info-box {
+  box-sizing: border-box;
+  border: 1px solid #595959;
+  border-radius: 10px;
+  width: 288px;
+  height: 182px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.85);
+  padding: 10px;
+}
+
+.inside-title {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: center;
+
+  color: #53B4D2;
+}
+
+.inside-text {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+
+  color: #CECECE;
+  }
+
+#aboutus {
+  height: 600px;
+  width: 100%;
+  background: #2D2D2D;
+  display: flex;
+}
+
+#aboutusimg {
+  height: 444px;
+  width: 677px;
+}
+
+#aboutustext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+#aboutus1 {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  /* identical to box height, or 30px */
+
+  letter-spacing: 0.08em;
+
+  color: #53B4D2;
+}
+
+#aboutus2 {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  /* identical to box height */
+
+
+  color: #FFFFFF;
+}
+
+#aboutus3 {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  /* or 24px */
+
+
+  color: #CBCBCB;
+}
+
+#lastpart {
+  background-image: url("djhome.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 593px;
+}
+
+#btn-last {
+  left: 60px;
+  bottom: -1450px;
+  position: absolute;
+}
