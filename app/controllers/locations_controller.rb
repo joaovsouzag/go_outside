@@ -3,12 +3,19 @@ class LocationsController < ApplicationController
 
   def index
     @locations = policy_scope(Location)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR address ILIKE :query OR location_type ILIKE :query"
+      @locations = Location.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @locations
+    end
   end
 
   def show
     @location = Location.find(params[:id])
     @checkin = CheckIn.new
     @favorite = Favorite.new
+    @feedback = Feedback.new
     authorize @location
   end
 end
