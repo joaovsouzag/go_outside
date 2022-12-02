@@ -1,16 +1,21 @@
+<%= render "shared/searchbar" %>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-8">
-      <div id="locations">
-        <% @locations.each do |location| %>
-          <h4><%= location.name %></h4>
-          <p><%= location.address %></p>
-          <p><%= location.location_type %></p>
-          <p><%= location.photos %></p>
-        <% end %>
+      <div class="cards">
+        <div class="location-cards">
+            <% @locations.each do |location| %>
+              <%= link_to location_path(location), class: "no-deco" do %>
+              <div class="location">
+                <h4><%= location.name %></h4>
+                <p>Address:<%= location.address %></p>
+                <p>Type:<%= location.location_type %></p>
+                <p><%= location.photos %></p>
+              </div>
+            <%end %>
+          <%end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= render "shared/searchbar" %>

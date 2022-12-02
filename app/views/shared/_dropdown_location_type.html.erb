@@ -1,0 +1,16 @@
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Tipo de Local?</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#"> Bar <i class="uil uil-arrow-right"></i></a>
+    <a href="#"> Night Club <i class="uil uil-arrow-right"></i></a>
+  </div>
+</div>
+
+<%= form_with url: locations_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Tipo de Local?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
