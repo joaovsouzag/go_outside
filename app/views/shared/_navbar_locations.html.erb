@@ -1,8 +1,8 @@
-<%= render "shared/navbar_locations"%>
+<%# <%= render "shared/navbar_locations"%> %>
 <div class="background_nav_loc">
  <% if current_user.check_in != nil %>
  <%= link_to "Check Out",
-                    location_check_in_path(@location),
+                    location_path(),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2 p-3" %>
 <% else %>
  <%= simple_form_for([@location, @checkin]) do |f| %>
