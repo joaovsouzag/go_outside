@@ -12,7 +12,7 @@ body, button, input {
 	line-height: 1.5em;
 }
 body, input {
-	color: #171717;
+	color: #ffffff;
 }
 body, .search-bar {
 	display: flex;
@@ -73,7 +73,7 @@ body {
 	transform: scale(1);
 }
 .search-btn {
-	background: #171717;
+	background: #f0eeee;
 	border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
 	padding: 0.75em;
 	position: relative;
@@ -140,17 +140,24 @@ body {
 		color: #f1f1f1;
 	}
 	body {
-		background: #171717;
+		background: #ffffff;
 	}
 	.search-bar input {
 		box-shadow: 0 0 0 0.4em #f1f1f1 inset;
 	}
 	.search-bar input:focus,
 	.search-bar input:valid {
-		background: #3d3d3d;
+		background: #fdfbfb;
 		box-shadow: 0 0 0 0.1em #3d3d3d inset;
 	}
 	.search-btn {
 		background: #f1f1f1;
 	}
+}
+.bar-position {
+  position: absolute;
+  margin-top: 5px;
+  right: 0px;
+  width: 300px;
+  padding: 10px;
 }
