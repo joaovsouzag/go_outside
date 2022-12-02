@@ -1,4 +1,5 @@
- <div class="background_nav_loc">
+<%= render "shared/navbar_locations"%>
+<div class="background_nav_loc">
  <% if current_user.check_in != nil %>
  <%= link_to "Check Out",
                     location_check_in_path(@location),
@@ -14,16 +15,13 @@
   <%= f.submit %>
   <% end %>
 <% else %>
- <%= link_to "Unfavorite",
-                    location_favorite_path(@location),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2 p-3"
-               do %>
-          <i class="fa-regular fa-heart"></i>
+ <%= link_to location_favorite_path(@location), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-heart"></i>
      <% end %>
 <% end %>
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
+  Create FeedBack
 </button>
 
 <div class="modal fade modal-dialog" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
