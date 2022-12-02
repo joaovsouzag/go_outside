@@ -13,6 +13,7 @@ h1 {
   text-shadow: rgb(255, 255, 255) 0.0em 0.1em 0.2em;
   text-align: center;
   margin-bottom: 10px;
+  font-size: 40px;
 }
 
 .grid-layout {
@@ -22,16 +23,19 @@ h1 {
   grid-auto-rows: minmax(180px, auto);
   grid-auto-flow: dense;
   padding: 1px;
+  margin-top: 22px;
 }
 
 .grid-item {
   padding: 1rem;
+  margin: 3px;
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   color: rgb(66, 66, 66);
   background-color: #727272;
   border-radius: 10px;
+  box-shadow: 0 0 15px rgb(255, 255, 255);
 }
 
 .span-2 {
