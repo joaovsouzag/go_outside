@@ -1,14 +1,10 @@
 .bg-signup {
-  margin:0;
-  padding:0;
   font-family: sans-serif;
   background: linear-gradient(#141e30, #243b55);
-  height: 100%;
-  width: 100%;
 }
 
 .signup-box {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 400px;
@@ -58,7 +54,6 @@ label {
 	color: rgb(255, 255, 255);
 }
 
-.signup-box .user-box input:focus ~ label,
 .signup-box .user-box input:valid ~ label {
   top: -20px;
   left: 0;
@@ -92,7 +87,7 @@ label {
 
 .signup-box a span {
   position: absolute;
-  display: block;
+  // display: block;
 }
 
 .signup-box a span:nth-child(1) {

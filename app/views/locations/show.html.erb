@@ -1,51 +1,96 @@
- <% if current_user.check_in != nil %>
- <%= link_to "Check Out",
-                    location_check_in_path(@location),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2 p-3" %>
-<% else %>
- <%= simple_form_for([@location, @checkin]) do |f| %>
-    <%= f.submit %>
- <% end %>
-<% end %>
 
-<% if current_user.favorites != [] %>
- <%= link_to "Unfavorite",
-                    location_favorite_path(@location),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2 p-3"
-                %>
-<% else %>
- <%= simple_form_for([@location, @favorite]) do |f| %>
-    <%= f.submit %>
-  <% end %>
-<% end %>
+ <%= render "shared/navbar_locations" %>
+<div class="container-show">
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+  <div class="cardy card-show">
+    <%= link_to images_index_path, class: "no-deco" do %>
+    <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578736641330-3155e606cd40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+      PHOTOS
+    </div>
+    <% end %>
 
-<div class="modal fade modal-dialog" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <%= link_to videos_index_path, class: "no-deco" do %>
+    <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1563784462386-044fd95e9852?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)">
+      VIDEOS
+    </div>
+    <% end %>
+
+    <%= link_to comments_index_path, class: "no-deco" do %>
+    <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+      COMMENTS
+    </div>
+    <% end %>
+  </div>
+
+  <div class="feed-check">
+  <div class="feedback-cards">
+    <div class="card-prod">
+      <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
+        <div class="box-nickname">
+          <h2>Babu</h2>
+          <div class="card-prod-infos">
+            <h3>Comments:</h3>
+            <p>Festa tooop! Só venham!</p>
+          </div>
+        </div>
+      <div class="avatar-show">
+        <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/barbaracarloni" />
       </div>
-      <div class="modal-body">
-        <%= simple_form_for([@location, @feedback]) do |f| %>
-        <h1>One Vibing Photo, please.</h1>
-           <%= f.input :photos, multiple: true, direct_upload: 'false', label: "One Vibing Photo, please.", required: false%>
-            <h1>One Vibing Video, please.</h1>
-           <%= f.input :videos, multiple: true, direct_upload: 'false', label: "One Vibing Video, please."%>
-            <h1>What do you think about place vibe?</h1>
-           <%= f.input :comment, label: "What do you think about place vibe?"%>
-            <h1>give a rate for it!</h1>
-           <%= f.input :rating, label: "give a rate for it!"%>
-           <%= f.submit %>
-           <% end %>
+    </div>
+
+    <div class="card-prod">
+      <img src="https://images.unsplash.com/photo-1581417478175-a9ef18f210c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
+        <div class="box-nickname">
+          <h2>JohnyV</h2>
+          <div class="card-prod-infos">
+            <h3>Comments:</h3>
+            <p>Tava uma fila para entrar, mas depois liberou geral...</p>
+          </div>
+        </div>
+        <div class="avatar-show">
+          <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/joaovsouzag" />
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+
+       <div class="card-prod">
+      <img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=829&q=80" />
+        <div class="box-nickname">
+          <h2>DevAleixo</h2>
+          <div class="card-prod-infos">
+            <h3>Comments:</h3>
+            <p>Tá 100,00 com consumo pra entrar! Festa massaaa..</p>
+          </div>
+        </div>
+        <div class="avatar-show">
+          <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/devaleixo" />
+        </div>
       </div>
+
+
+    <div class="card-prod">
+      <img src="https://images.unsplash.com/photo-1611105849269-e3c1815fea47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+        <div class="box-nickname">
+          <h2>DavidCarioca</h2>
+          <div class="card-prod-infos">
+            <h3>Comments:</h3>
+            <p>Muitas chicas guapas! Até desinstalei o tinder! Hoje vai ter putariaaa!</p>
+          </div>
+        </div>
+        <div class="avatar-show">
+          <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/davidfpena" />
+        </div>
+      </div>
+    </div>
+
+    <div class="checkin-show">
+      <div class="card-categ">
+        <h3>See who’s there</h3>
+      </div>
+       <%# <div class="avatar-checkin">
+          <img src="https://kitt.lewagon.com/placeholder/users/davidfpena" />
+      </div> %>
     </div>
   </div>
 </div>
+

@@ -7,20 +7,22 @@
 :root {
 	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
 }
-body, button, input {
+button, input {
 	font: 1em Hind, sans-serif;
 	line-height: 1.5em;
 }
-body, input {
-	color: #ffffff;
+
+input {
+	color: #171717;
+
 }
-body, .search-bar {
+.search-bar {
 	display: flex;
 }
-body {
-	background: #f1f1f1;
-	height: 100vh;
-}
+// body {
+// 	background: #f1f1f1;
+// 	height: 100vh;
+// }
 .search-bar input,
 .search-btn,
 .search-btn:before,

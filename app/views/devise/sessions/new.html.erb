@@ -24,7 +24,8 @@
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           <div class="button-box">
             <div class="form-actions">
-              <%= link_to "Log In",  user_session_path, :class=> "btn",  id: "login-btn" %>
+            <%= f.button :submit, "Log in" %>
+              <%= link_to "Log In",  user_session, :class=> "btn",  id: "login-btn" %>
               <%= link_to "Sign Up", new_user_registration_path, :class=> "btn",  id: "signup-btn" %>
               <%= link_to "Forgot Password", new_password_path(resource_name), :class=> "btn",  id: "forgot-btn" %>
             </div>

@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(ath_feedback)
     @feedback.user_id = current_user.id
-    @feedback.location_id = Location.find(params[:location_id])
+    @feedback.location_id = Location.find(params[:location_id]).id
     @feedback.save
     authorize @feedback
   end
