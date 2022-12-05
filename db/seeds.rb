@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or create!d alongside the database with db:setup).
 #
@@ -16,11 +17,11 @@
 # Location.create!( address: "R. Farme de Amoedo, 39 - Ipanema, Rio de Janeiro - RJ, 22420-020" , name: "Balada Mix" , location_type: "Night Club")
 # Location.create!( address: "R. Farme de Amoedo, 75 - Ipanema, Rio de Janeiro - RJ, 22420-020" , name: "Koni" , location_type: "Bar")
 
-Location.create!( address: "Gavea", name: "Bosque Bar", location_type: "Night Club", photos: "https://images.unsplash.com/photo-1575037614876-c38a4d44f5b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHw2fHxwdWJ8ZW58MHx8fHwxNjY5OTk2ODIy&ixlib=rb-4.0.3&q=80&w=1080" )
-Location.create!( address: "Barra da Tijuca", name: "Vitrini", location_type: "Night Club",photos: "https://images.unsplash.com/photo-1491333078588-55b6733c7de6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwyMXx8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
-Location.create!( address: "Copacabana", name: "Belmonte", location_type: "Bar", photos: "https://images.unsplash.com/photo-1558210598-89ba75b1724e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHw5fHxwdWJ8ZW58MHx8fHwxNjY5OTk2ODIy&ixlib=rb-4.0.3&q=80&w=1080")
-Location.create!( address: "Barra da Tijuca", name: "All In", location_type: "Night Club", photos: "https://images.unsplash.com/photo-1594035900144-17151c9910af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwyNnx8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
-Location.create!( address: "Botafogo", name: "Rosa de Ouro", location_type: "Bar", photos: "https://images.unsplash.com/photo-1597290282695-edc43d0e7129?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwxM3x8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
+
+file = URI.open("https://static.wixstatic.com/media/ec091c_0435695aea4b4758a8240349c578dacc~mv2.png")
+location = Location.new(address: "Gavea", name: "Bosque Bar", location_type: "Night Club")
+location.photo.attach(io: file, filename: "ec091c_0435695aea4b4758a8240349c578dacc_mv2.png", content_type: "image/png")
+location.save
 
 # Feedback.create!( user_id: "1" , location_id: "4" , comment: "ashfkjhasjfhkjhasf" , rating: "2")
 # Feedback.create!( user_id: "2" , location_id: "3" , comment: "afhgjkahskjfhjkahs" , rating: "4")
