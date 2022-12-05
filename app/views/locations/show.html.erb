@@ -87,10 +87,13 @@
       <div class="card-categ">
         <h3>See who’s there</h3>
       </div>
-       <%# <div class="avatar-checkin">
-          <img src="https://kitt.lewagon.com/placeholder/users/davidfpena" />
-      </div> %>
+        <div class="row avatar-checkin">
+        <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
+        <div class="col-4">
+          <%= cl_image_tag checkin.user.photo.key %>
+        </div>
+         <% end %>
+      </div>
     </div>
   </div>
 </div>
-
