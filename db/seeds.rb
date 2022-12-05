@@ -77,24 +77,24 @@
 require "open-uri"
 require "net/http"
 require "json"
-
+puts "creating first page Location"
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
 user_serialized = URI.open(url).read
 night_clubs = JSON.parse(user_serialized)
-
 night_clubs["results"].each do |nc|
   url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
   place = URI.open(url).read
   clubs = JSON.parse(place)
   Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"] )
 end
+# puts "creating second page Location"
 
-url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8&pageToken=#{night_clubs["next_page_token"]}"
-user_serialized = URI.open(url).read
-night_clubs_second = JSON.parse(user_serialized)
- night_clubs_second["results"].each do |nc|
-  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
-  place = URI.open(url).read
-  clubs = JSON.parse(place)
-  Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"] )
- end
+# url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8&pageToken=#{night_clubs["next_page_token"]}"
+# user_serialized = URI.open(url).read
+# night_clubs_second = JSON.parse(user_serialized)
+#  night_clubs_second["results"].each do |nc|
+#   url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+#   place = URI.open(url).read
+#   clubs = JSON.parse(place)
+#   Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"] )
+#  end
