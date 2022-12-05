@@ -16,9 +16,45 @@
   background-color: #172A30;
   margin-right: 17px;
   margin-bottom: 10px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .bar-position-loc {
  margin: 0;
  padding: 0;
+}
+
+#btn-check-out {
+  height: 45px;
+  width: 131px;
+  border-radius: 9px;
+  border: 1px solid white;
+  background-color: #172A30;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  margin-right: 17px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  a {
+    margin-top: 10px;
+  }
+}
+
+.fa-heart {
+  color: red;
+  margin-right: 17px;
+  margin-bottom: 32px;
+}
+
+.post-btn-nav-loc {
+  height: 45px;
+  width: 131px;
+  border-radius: 9px;
+  border: 1px solid white;
+  background-color: #172A30;
+  margin-right: 17px;
+  margin-bottom: 10px;
+  color: white;
 }

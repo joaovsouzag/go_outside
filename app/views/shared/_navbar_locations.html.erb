@@ -4,20 +4,18 @@
 <div class="background_nav_loc">
 <% if @check_favorite%>
   <%= simple_form_for([@location, @favorite]) do |f| %>
-  <%= f.submit "Favorite" do %>
-  <i class="fa-thin fa-heart"></i>
-  <% end %>
+  <%= f.submit do %><i class="fa-regular fa-heart"></i><% end %>
   <% end %>
 <% else %>
  <%= link_to location_favorite_path(@location), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-heart fa-2xl"></i>
      <% end %>
 <% end %>
 
  <% if current_user.check_in != nil %>
  <%= link_to "Check Out",
                     location_check_in_path(@location),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-nav-loc no-deco" %>
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, id: "btn-check-out" %>
 <% else %>
  <%= simple_form_for([@location, @checkin]) do |f| %>
     <%= f.submit "Check In", :class => "btn-nav-loc"%>
@@ -25,7 +23,7 @@
 <% end %>
 
 
-<button type="button" class="btn-nav-loc" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="post-btn-nav-loc" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Post
 </button>
 
