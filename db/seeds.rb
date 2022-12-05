@@ -16,11 +16,11 @@
 # Location.create!( address: "R. Farme de Amoedo, 39 - Ipanema, Rio de Janeiro - RJ, 22420-020" , name: "Balada Mix" , location_type: "Night Club")
 # Location.create!( address: "R. Farme de Amoedo, 75 - Ipanema, Rio de Janeiro - RJ, 22420-020" , name: "Koni" , location_type: "Bar")
 
-Location.create!( address: "Gavea", name: "Bosque Bar", location_type: "Night Club", photos: "https://images.unsplash.com/photo-1575037614876-c38a4d44f5b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHw2fHxwdWJ8ZW58MHx8fHwxNjY5OTk2ODIy&ixlib=rb-4.0.3&q=80&w=1080" )
-Location.create!( address: "Barra da Tijuca", name: "Vitrini", location_type: "Night Club",photos: "https://images.unsplash.com/photo-1491333078588-55b6733c7de6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwyMXx8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
-Location.create!( address: "Copacabana", name: "Belmonte", location_type: "Bar", photos: "https://images.unsplash.com/photo-1558210598-89ba75b1724e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHw5fHxwdWJ8ZW58MHx8fHwxNjY5OTk2ODIy&ixlib=rb-4.0.3&q=80&w=1080")
-Location.create!( address: "Barra da Tijuca", name: "All In", location_type: "Night Club", photos: "https://images.unsplash.com/photo-1594035900144-17151c9910af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwyNnx8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
-Location.create!( address: "Botafogo", name: "Rosa de Ouro", location_type: "Bar", photos: "https://images.unsplash.com/photo-1597290282695-edc43d0e7129?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwxM3x8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
+# Location.create!( address: "Gavea", name: "Bosque Bar", location_type: "Night Club", photos: "https://images.unsplash.com/photo-1575037614876-c38a4d44f5b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHw2fHxwdWJ8ZW58MHx8fHwxNjY5OTk2ODIy&ixlib=rb-4.0.3&q=80&w=1080" )
+# Location.create!( address: "Barra da Tijuca", name: "Vitrini", location_type: "Night Club",photos: "https://images.unsplash.com/photo-1491333078588-55b6733c7de6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwyMXx8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
+# Location.create!( address: "Copacabana", name: "Belmonte", location_type: "Bar", photos: "https://images.unsplash.com/photo-1558210598-89ba75b1724e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHw5fHxwdWJ8ZW58MHx8fHwxNjY5OTk2ODIy&ixlib=rb-4.0.3&q=80&w=1080")
+# Location.create!( address: "Barra da Tijuca", name: "All In", location_type: "Night Club", photos: "https://images.unsplash.com/photo-1594035900144-17151c9910af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwyNnx8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
+# Location.create!( address: "Botafogo", name: "Rosa de Ouro", location_type: "Bar", photos: "https://images.unsplash.com/photo-1597290282695-edc43d0e7129?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDg4MDd8MHwxfHNlYXJjaHwxM3x8cHVifGVufDB8fHx8MTY2OTk5NjgyMg&ixlib=rb-4.0.3&q=80&w=1080")
 
 # Feedback.create!( user_id: "1" , location_id: "4" , comment: "ashfkjhasjfhkjhasf" , rating: "2")
 # Feedback.create!( user_id: "2" , location_id: "3" , comment: "afhgjkahskjfhjkahs" , rating: "4")
@@ -73,3 +73,49 @@ Location.create!( address: "Botafogo", name: "Rosa de Ouro", location_type: "Bar
 # sample["favorites"].each do |favorite|
 #   favorites[favorite["slug"]] = Favorite.create! favorite.slice("user_id", "location_id")
 # end
+
+require "open-uri"
+require "net/http"
+require "json"
+puts "creating night clubs locations"
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+user_serialized = URI.open(url).read
+night_clubs = JSON.parse(user_serialized)
+night_clubs["results"].each do |nc|
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+  place = URI.open(url).read
+  clubs = JSON.parse(place)
+  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://upload.wikimedia.org/wikipedia/commons/3/32/Wikipedia_space_ibiza%2803%29.jpg")
+  end
+end
+
+puts "creating bars locations"
+
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=bars%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+user_serialized = URI.open(url).read
+night_clubs = JSON.parse(user_serialized)
+night_clubs["results"].each do |nc|
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+  place = URI.open(url).read
+  clubs = JSON.parse(place)
+  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+  end
+end
+
+
+# @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+# @spot = @client.spot('ChIJaYLfFbnQmwARrgot5N4aHy0')
+# url = @spot.photos[0].fetch_url(800)
+# p url
