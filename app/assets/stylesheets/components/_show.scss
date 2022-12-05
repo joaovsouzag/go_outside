@@ -19,21 +19,18 @@
 
 .feed-check {
   display: flex;
-  justify-content: space-between;
   margin-inline: 30px;
 }
 
 // feedbacks
 .feedback-cards {
-  display: block;
-  width: 100%;
-  margin-right: 20px;
+  width: 90%;
 }
 
 .card-prod {
   overflow: hidden;
   height: 160px;
-  width: 100%;
+  width: 90%;
   background: #444444;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -106,8 +103,9 @@
 }
 
 .checkin-show .card-categ {
-  height: 400px;
-  width: 420px;
+  height: 300px;
+  width: 320px;
+  margin-right: 48px;
 }
 
 h3 {
@@ -133,19 +131,21 @@ h3 {
   height: 70px;
 }
 
-// .checkin-show .card-categ {
-//   padding: 16px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-end;
-//   position: relative;
-// }
+.checkin-show .card-categ {
+  padding: 16px;
+  align-items: flex-end;
+  position: relative;
+}
 
-// .avatar-checkin img {
-//   position: absolute;
-//   right: 30px;
-//   top: 500px;
-//   border-radius: 50%;
-//   width: 70px;
-//   height: 70px;
-// }
+.avatar-checkin {
+  display: flex;
+  justify-content: space-around;
+}
+
+.avatar-checkin img {
+  position: absolute;
+  top: 610px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+ }
