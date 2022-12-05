@@ -1,17 +1,12 @@
+<div class = "searchbar">
+<%= render "/shared/search_nav_loc" %>
+</div>
 <div class="background_nav_loc">
- <% if current_user.check_in != nil %>
- <%= link_to "Check Out",
-                    location_path(),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2 p-3" %>
-<% else %>
- <%= simple_form_for([@location, @checkin]) do |f| %>
-    <%= f.submit %>
- <% end %>
-<% end %>
-
 <% if @check_favorite%>
   <%= simple_form_for([@location, @favorite]) do |f| %>
-  <%= f.submit %>
+  <%= f.submit "Favorite" do %>
+  <i class="fa-thin fa-heart"></i>
+  <% end %>
   <% end %>
 <% else %>
  <%= link_to location_favorite_path(@location), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
@@ -19,8 +14,19 @@
      <% end %>
 <% end %>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Create FeedBack
+ <% if current_user.check_in != nil %>
+ <%= link_to "Check Out",
+                    location_check_in_path(@location),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-nav-loc no-deco" %>
+<% else %>
+ <%= simple_form_for([@location, @checkin]) do |f| %>
+    <%= f.submit "Check In", :class => "btn-nav-loc"%>
+ <% end %>
+<% end %>
+
+
+<button type="button" class="btn-nav-loc" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Post
 </button>
 
 <div class="modal fade modal-dialog" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
