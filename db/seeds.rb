@@ -77,7 +77,7 @@
 require "open-uri"
 require "net/http"
 require "json"
-puts "creating first page Location"
+puts "creating night clubs locations"
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
 user_serialized = URI.open(url).read
 night_clubs = JSON.parse(user_serialized)
@@ -85,16 +85,37 @@ night_clubs["results"].each do |nc|
   url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
   place = URI.open(url).read
   clubs = JSON.parse(place)
-  Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"] )
+  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://upload.wikimedia.org/wikipedia/commons/3/32/Wikipedia_space_ibiza%2803%29.jpg")
+  end
 end
-# puts "creating second page Location"
 
-# url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8&pageToken=#{night_clubs["next_page_token"]}"
-# user_serialized = URI.open(url).read
-# night_clubs_second = JSON.parse(user_serialized)
-#  night_clubs_second["results"].each do |nc|
-#   url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
-#   place = URI.open(url).read
-#   clubs = JSON.parse(place)
-#   Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"] )
-#  end
+puts "creating bars locations"
+
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=bars%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+user_serialized = URI.open(url).read
+night_clubs = JSON.parse(user_serialized)
+night_clubs["results"].each do |nc|
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+  place = URI.open(url).read
+  clubs = JSON.parse(place)
+  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+  end
+end
+
+
+# @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+# @spot = @client.spot('ChIJaYLfFbnQmwARrgot5N4aHy0')
+# url = @spot.photos[0].fetch_url(800)
+# p url
