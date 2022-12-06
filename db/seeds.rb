@@ -77,15 +77,15 @@ Chatroom.create(name: "live chat", location_id: "1")
 require "open-uri"
 require "net/http"
 require "json"
-puts "creating night clubs locations"
-url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+puts "pushing night clubs locations RJ"
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=#{ENV['GOOGLE_KEY']}"
 user_serialized = URI.open(url).read
 night_clubs = JSON.parse(user_serialized)
 night_clubs["results"].each do |nc|
-  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=#{ENV['GOOGLE_KEY']}"
   place = URI.open(url).read
   clubs = JSON.parse(place)
-  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  @client = GooglePlaces::Client.new("#{ENV['GOOGLE_KEY']}")
   if @client.spot("#{nc["place_id"]}").photos != []
     @spot = @client.spot("#{nc["place_id"]}")
     url = @spot.photos[0].fetch_url(800)
@@ -95,16 +95,33 @@ night_clubs["results"].each do |nc|
   end
 end
 
-puts "creating bars locations"
+puts "pushing bars locations RJ"
 
-url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=bars%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=bars%20in%20Rio%20de%20janeiro&key=#{ENV['GOOGLE_KEY']}"
 user_serialized = URI.open(url).read
 night_clubs = JSON.parse(user_serialized)
 night_clubs["results"].each do |nc|
-  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=#{ENV['GOOGLE_KEY']}"
   place = URI.open(url).read
   clubs = JSON.parse(place)
-  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  @client = GooglePlaces::Client.new("#{ENV['GOOGLE_KEY']}")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+  end
+end
+puts "pushing night club locations SP"
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night%20clubs%20in%20sao%20paulo&key=#{ENV['GOOGLE_KEY']}"
+user_serialized = URI.open(url).read
+night_clubs = JSON.parse(user_serialized)
+night_clubs["results"].each do |nc|
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=#{ENV['GOOGLE_KEY']}"
+  place = URI.open(url).read
+  clubs = JSON.parse(place)
+  @client = GooglePlaces::Client.new("#{ENV['GOOGLE_KEY']}")
   if @client.spot("#{nc["place_id"]}").photos != []
     @spot = @client.spot("#{nc["place_id"]}")
     url = @spot.photos[0].fetch_url(800)
@@ -114,8 +131,21 @@ night_clubs["results"].each do |nc|
   end
 end
 
-
-# @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
-# @spot = @client.spot('ChIJaYLfFbnQmwARrgot5N4aHy0')
-# url = @spot.photos[0].fetch_url(800)
-# p url
+puts "pushing bar locations SP"
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=bars%20in%20sao%20paulo&key=#{ENV['GOOGLE_KEY']}"
+user_serialized = URI.open(url).read
+night_clubs = JSON.parse(user_serialized)
+night_clubs["results"].each do |nc|
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=#{ENV['GOOGLE_KEY']}"
+  place = URI.open(url).read
+  clubs = JSON.parse(place)
+  @client = GooglePlaces::Client.new("#{ENV['GOOGLE_KEY']}")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+  end
+end
+puts "finished"
