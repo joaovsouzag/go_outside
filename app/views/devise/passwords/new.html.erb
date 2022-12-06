@@ -14,11 +14,11 @@
                       input_html: { autocomplete: "email" } %>
         </div>
         <div class="button-box">
-          <div class="form-actions">
-            <%= link_to "Log In",  user_session_path, :class=> "btn",  id: "login-btn" %>
-            <%= link_to "Sign Up", new_user_registration_path, :class=> "btn",  id: "signup-btn" %>
+          <div class="button-form">
+            <%# link_to "Log In",  user_session_path, :class=> "btn",  id: "login-btn" %>
+            <%# link_to "Sign Up", new_user_registration_path, :class=> "btn",  id: "signup-btn" %>
             <%= link_to "Reset my Password", new_user_password_path, :class=> "btn",  id: "reset-password-btn" %>
-            <%= f.button :submit, "Send me reset password instructions" %>
+            <%= f.button :submit, "Send me reset password instructions", id: "instr-btn" %>
           </div>
         </div>
       <% end %>
