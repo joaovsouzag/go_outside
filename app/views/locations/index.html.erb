@@ -1,4 +1,15 @@
 <%= render "shared/searchbar" %>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Location Type:
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <%# <%= link_to getElementsByTagName(bar), class: "dropdown-item"> Bar & Pubs %>
+    <%# <%= link_to getElementsByTagName(night_club), class: "dropdown-item"> Night Clubs %>
+  </div>
+</div>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-8">
@@ -10,11 +21,24 @@
                 <h4><%= location.name %></h4>
                 <p>Address:<%= location.address %></p>
                 <p>Type:<%= location.location_type %></p>
+                <%# <p><%= location.photos %>
               </div>
             <%end %>
           <%end %>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="sliders">
+  <div class="slider-age">
+    <p> Age_Group</p>
+      <input type="range" min="18" max="100" oninput="rangeValue.innerText = this.value">
+    <p id="rangeValue"> years </p>
+  <div class="slider-distance">
+    <p> Max_Distance <p>
+      <input type="range" min="0" max="100" oninput="rangeValue3.innerText = this.value">
+    <p id="rangeValue3"> km </p>
   </div>
 </div>
