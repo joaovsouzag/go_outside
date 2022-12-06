@@ -1,0 +1,60 @@
+<div class = "searchbar">
+  <%= render "/shared/search_nav_loc" %>
+</div>
+<div class="background_nav_loc">
+  <div class="loc-name-img">
+  <img class="avatar-large" alt="avatar-large" src="<%=@location.photos%>" />
+  <h2><%= @location.name %></h2>
+  </div>
+  <div class="buttons-nav-loc">
+    <% if @check_favorite%>
+      <%= simple_form_for([@location, @favorite]) do |f| %>
+      <button type="submit" class = "btn-favorite">
+       <i class="fa-regular fa-heart fa-2xl "></i>
+      </button>
+        <% end %>
+    <% else %>
+      <%= link_to location_favorite_path(@location), data: {turbo_method: :delete} do %>
+        <i class="fa-solid fa-heart fa-2xl"></i>
+      <% end %>
+    <% end %>
+    <% if current_user.check_in != nil %>
+      <div class= "btn-nav-loc">
+        <%= link_to "Check Out",
+          location_check_in_path(@location),
+          data: {turbo_method: :delete} %>
+      </div>
+    <% else %>
+      <%= simple_form_for([@location, @checkin]) do |f| %>
+          <%= f.submit "Check In", :class => "btn-nav-loc"%>
+        <% end %>
+    <% end %>
+
+    <button type="button" class="post-btn-nav-loc" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Post
+    </button>
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Post Your Feedback</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for([@location, @feedback]) do |f| %>
+            <h2>One Vibing Photo</h2>
+              <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+                <h2>One Vibing Video</h2>
+              <%= f.input :videos, as: :file, input_html: { multiple: true }%>
+                <h2>Describre how things are going!</h2>
+              <%= f.input :comment, label: "What do you think about place vibe?"%>
+                <h2>Give a rate for it!</h2>
+              <%= f.input :rating, input_html: { min: '0', max: '10', step: '1' }, hint: "0-10"%>
+              <%= f.submit "Submit", :class => "btn-nav-loc"%>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

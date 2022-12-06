@@ -7,8 +7,19 @@
 @import "login";
 @import "signup";
 @import "remember_password";
+@import "bar_nightclub";
+
+
+@import "searchbar";
 @import "images";
 @import "videos";
+@import "comments";
+
+@import "show";
+
+
+
+@import "nav_loc";
 
 
 html {
@@ -17,5 +28,6 @@ html {
 
 body {
   padding-top: 80px;
+  padding-bottom: 80px;
   background-color: #2D2D2D;
 }
