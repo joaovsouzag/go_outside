@@ -32,10 +32,14 @@
 # Favorite.create!( user_id: "3" , location_id: "2")
 # Favorite.create!( user_id: "4" , location_id: "1")
 
+Chatroom.create(name: "live chat", location_id: "1")
+
+
 # CheckIn.create!( user_id: "1" , location_id: "4")
 # CheckIn.create!( user_id: "2" , location_id: "3")
 # CheckIn.create!( user_id: "3" , location_id: "2")
 # CheckIn.create!( user_id: "4" , location_id: "1")
+
 
 
 # require "open-uri"

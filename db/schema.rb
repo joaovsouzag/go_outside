@@ -42,6 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_175933) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_chatrooms_on_location_id"
+  end
+
   create_table "check_ins", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "location_id", null: false
@@ -82,6 +90,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_175933) do
     t.float "longitude"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -107,10 +125,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_175933) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "locations"
   add_foreign_key "check_ins", "locations"
   add_foreign_key "check_ins", "users"
   add_foreign_key "favorites", "locations"
   add_foreign_key "favorites", "users"
   add_foreign_key "feedbacks", "locations"
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
 end
