@@ -3,14 +3,17 @@ class LocationsController < ApplicationController
 
   def index
     @locations = policy_scope(Location)
-    if params[:query].present?
+    if params[:query].present? && params[:location_type] == ""
       sql_query = "name ILIKE :query OR address ILIKE :query OR location_type ILIKE :query"
-      @locations = Location.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @locations
+      @locations = policy_scope(Location).search_by_name_and_address(params[:query])
+    elsif params[:query].present? && params[:location_type] == "1"
+      @first_locations = policy_scope(Location).search_by_location_type("Bar")
+      @locations = @first_locations.search_by_name_and_address(params[:query])
+    elsif params[:query].present? && params[:location_type] == "2"
+      @first_locations = policy_scope(Location).search_by_location_type("Night Club")
+      @locations = @first_locations.search_by_name_and_address(params[:query])
     end
   end
-
   def show
     @location = Location.find(params[:id])
     @checkin = CheckIn.new

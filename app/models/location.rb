@@ -7,10 +7,15 @@ class Location < ApplicationRecord
   # validates :photos, presence: true, on: :create
 
   include PgSearch::Model
-  multisearchable against: [:name, :location_type, :address]
-  pg_search_scope :search_by_name_location_type_and_distance_and_address,
-    against: [ :name, :location_type, :address ],
+  # multisearchable against: [:name, :location_type, :address]
+  pg_search_scope :search_by_name_and_address,
+    against: [ :name, :address ],
     using: {
       tsearch: { prefix: true }
     }
+  pg_search_scope :search_by_location_type,
+  against: [ :location_type ],
+  using: {
+    tsearch: { prefix: true }
+  }
   end
