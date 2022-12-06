@@ -18,11 +18,6 @@ require "open-uri"
 # Location.create!( address: "R. Farme de Amoedo, 75 - Ipanema, Rio de Janeiro - RJ, 22420-020" , name: "Koni" , location_type: "Bar")
 
 
-file = URI.open("https://static.wixstatic.com/media/ec091c_0435695aea4b4758a8240349c578dacc~mv2.png")
-location = Location.new(address: "Gavea", name: "Bosque Bar", location_type: "Night Club")
-location.photo.attach(io: file, filename: "ec091c_0435695aea4b4758a8240349c578dacc_mv2.png", content_type: "image/png")
-location.save
-
 # Feedback.create!( user_id: "1" , location_id: "4" , comment: "ashfkjhasjfhkjhasf" , rating: "2")
 # Feedback.create!( user_id: "2" , location_id: "3" , comment: "afhgjkahskjfhjkahs" , rating: "4")
 # Feedback.create!( user_id: "3" , location_id: "2" , comment: "afhjksbkjfbadkjbfa" , rating: "3")
@@ -33,10 +28,14 @@ location.save
 # Favorite.create!( user_id: "3" , location_id: "2")
 # Favorite.create!( user_id: "4" , location_id: "1")
 
+Chatroom.create(name: "live chat", location_id: "1")
+
+
 # CheckIn.create!( user_id: "1" , location_id: "4")
 # CheckIn.create!( user_id: "2" , location_id: "3")
 # CheckIn.create!( user_id: "3" , location_id: "2")
 # CheckIn.create!( user_id: "4" , location_id: "1")
+
 
 
 # require "open-uri"
@@ -74,3 +73,49 @@ location.save
 # sample["favorites"].each do |favorite|
 #   favorites[favorite["slug"]] = Favorite.create! favorite.slice("user_id", "location_id")
 # end
+
+require "open-uri"
+require "net/http"
+require "json"
+puts "creating night clubs locations"
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+user_serialized = URI.open(url).read
+night_clubs = JSON.parse(user_serialized)
+night_clubs["results"].each do |nc|
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+  place = URI.open(url).read
+  clubs = JSON.parse(place)
+  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://upload.wikimedia.org/wikipedia/commons/3/32/Wikipedia_space_ibiza%2803%29.jpg")
+  end
+end
+
+puts "creating bars locations"
+
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=bars%20in%20Rio%20de%20janeiro&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+user_serialized = URI.open(url).read
+night_clubs = JSON.parse(user_serialized)
+night_clubs["results"].each do |nc|
+  url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=#{nc["place_id"]}&fields=name%2Cformatted_address&key=AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8"
+  place = URI.open(url).read
+  clubs = JSON.parse(place)
+  @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+  if @client.spot("#{nc["place_id"]}").photos != []
+    @spot = @client.spot("#{nc["place_id"]}")
+    url = @spot.photos[0].fetch_url(800)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+  else
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+  end
+end
+
+
+# @client = GooglePlaces::Client.new("AIzaSyC4a2VRVaiUdCbL2zOH1FMALVIOdFugUM8")
+# @spot = @client.spot('ChIJaYLfFbnQmwARrgot5N4aHy0')
+# url = @spot.photos[0].fetch_url(800)
+# p url
