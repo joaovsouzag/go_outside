@@ -83,16 +83,16 @@
       </div>
     </div>
 
-    <div class="checkin-show">
-      <div class="card-categ">
+    <div class="card-checkin">
+      <div>
         <h3>See who’s there</h3>
       </div>
         <div class="row avatar-checkin">
-        <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
-        <div class="col-4">
-          <%= cl_image_tag checkin.user.photo.key %>
-        </div>
-         <% end %>
+          <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
+              <div class="col-4">
+              <%= cl_image_tag checkin.user.photo.key %>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>

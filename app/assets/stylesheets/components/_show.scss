@@ -1,12 +1,26 @@
 // .container-show{
-//   width: 100%;
-// }
+  //   width: 100%;
+  // }
 
-// fotos e vídeos de agora
+  // fotos e vídeos de agora
 .cardy {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.card-categ {
+  background-size: cover;
+  background-position: center;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-show {
@@ -88,19 +102,6 @@
 
 
 //See who's in
-.card-categ {
-  background-size: cover;
-  background-position: center;
-  height: 160px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
 
 .checkin-show .card-categ {
   height: 300px;
@@ -131,21 +132,27 @@ h3 {
   height: 70px;
 }
 
-.checkin-show .card-categ {
-  padding: 16px;
-  align-items: flex-end;
-  position: relative;
-}
-
 .avatar-checkin {
-  display: flex;
   justify-content: space-around;
+  margin-inline: 30px;
 }
 
 .avatar-checkin img {
-  position: absolute;
   top: 610px;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
+  margin-top: 18px;
  }
+
+.card-checkin {
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 400px;
+}
+
+.card-checkin h3 {
+  text-align: center;
+  color: white;
+  margin-top: 15px;
+}
