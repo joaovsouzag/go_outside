@@ -113,8 +113,8 @@ night_clubs["results"].each do |nc|
     Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
   end
 end
-puts "pushing night club locations SP"
-url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night%20clubs%20in%20sao%20paulo&key=#{ENV['GOOGLE_KEY']}"
+puts "pushing night clubs locations SP"
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20sao%20paulo&key=#{ENV['GOOGLE_KEY']}"
 user_serialized = URI.open(url).read
 night_clubs = JSON.parse(user_serialized)
 night_clubs["results"].each do |nc|
@@ -125,13 +125,13 @@ night_clubs["results"].each do |nc|
   if @client.spot("#{nc["place_id"]}").photos != []
     @spot = @client.spot("#{nc["place_id"]}")
     url = @spot.photos[0].fetch_url(800)
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
   else
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
   end
 end
 
-puts "pushing bar locations SP"
+puts "pushing bars locations SP"
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=bars%20in%20sao%20paulo&key=#{ENV['GOOGLE_KEY']}"
 user_serialized = URI.open(url).read
 night_clubs = JSON.parse(user_serialized)
