@@ -7,14 +7,14 @@
 :root {
 	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
 }
-button, input {
+// button,
+input {
 	font: 1em Hind, sans-serif;
 	line-height: 1.5em;
 }
 
 input {
-	color: #171717;
-
+	color: #fdfcfc;
 }
 .search-bar {
 	display: flex;
@@ -52,6 +52,7 @@ input {
 	padding: 1.5em;
 	justify-content: center;
 	max-width: 30em;
+  z-index: -5;
 }
 .search-bar input {
 	background: transparent;
@@ -157,7 +158,7 @@ input {
 	}
 }
 .bar-position {
-  position: absolute;
+  // position: absolute;
   margin-top: 5px;
   right: 0px;
   width: 300px;

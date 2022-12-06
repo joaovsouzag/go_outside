@@ -20,6 +20,8 @@ class LocationsController < ApplicationController
     @favorite = Favorite.new
     @feedback = Feedback.new
     authorize @location
+    # @chatroom = Chatroom.find(params[:id])
+    @message = Message.new
     @check_favorite = current_user.favorites.all? { |favorite| favorite.location_id != @location.id }
   end
 end

@@ -1,17 +1,32 @@
-.carousel-item {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  max-width: 100px;
-  max-height: 500px;
+@media (min-width: 768px) {
+  .carousel-inner {
+    display: flex;
+  }
+  .carousel-item {
+    margin-right: 0;
+    flex: 0 0 33.333333%;
+    display: block;
+  }
 }
 
-.carousel-inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+.carousel-inner{
+  padding: 1em;
+  width: 200%;
+}
+.card{
+  margin: 0 .5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+  width: 400px;
+  height: 711px;
+}
+.carousel-control-prev, .carousel-control-next{
+  background-color: #e1e1e1;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 h1 {

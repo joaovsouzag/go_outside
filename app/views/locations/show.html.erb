@@ -83,14 +83,33 @@
       </div>
     </div>
 
-    <div class="checkin-show">
-      <div class="card-categ">
+    <div class="card-checkin">
+      <div>
         <h3>See who’s there</h3>
       </div>
-       <%# <div class="avatar-checkin">
-          <img src="https://kitt.lewagon.com/placeholder/users/davidfpena" />
-      </div> %>
+        <div class="row avatar-checkin">
+          <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
+              <div class="col-4">
+              <%= cl_image_tag checkin.user.photo.key %>
+            </div>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
 
+<%# <div class="container chatroom"> %>
+  <%# <h1>#<%= @chatroom.name %>
+
+  <%# <div class="messages"> %>
+    <%# <% @chatroom.messages.each do |message| %>
+      <%# <div id="message-<%= message.id %>
+        <%# <small>
+          <%# <strong><%= message.user.username %>
+          <%# <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %>
+        <%# </small> %>
+        <%# <p><%= message.content %>
+      <%# </div> %>
+    <%# <% end %>
+  <%# </div> %>
+<%# </div> %>
