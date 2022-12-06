@@ -17,5 +17,7 @@ class LocationsController < ApplicationController
     @favorite = Favorite.new
     @feedback = Feedback.new
     authorize @location
+    @chatroom = Chatroom.find(params[:id])
+    @message = Message.new
   end
 end
