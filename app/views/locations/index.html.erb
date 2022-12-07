@@ -9,9 +9,11 @@
               <div class="card-product-mine">
                 <img class="index-card-mine" src="<%=location.photos%>"/>
                 <div class="card-product-infos-mine">
-                  <h2><b><%= location.name %></b></h2>
-                  <p>Address:<%= location.address %></p>
-                  <h2><b><%= location.location_type %></b></h2>
+                  <h2><b><u><%= location.name %></b></u></h2>
+                  <p> </p>
+                  <p><%= location.address %></p>
+                  <p> </p>
+                  <h2><b>Category: </b><%= location.location_type %></h2>
                 </div>
               </div>
             <%end %>
