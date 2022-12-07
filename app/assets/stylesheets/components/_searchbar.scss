@@ -18,12 +18,17 @@
 // 	line-height: 1.5em;
 // }
 
+.loc-address-drop {
+  width: 200px;
+}
+.loc-type-drop {
+  width: 200px;
+}
+
 .dropdown-bar {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: center;
-
-  width: 280px;
+  margin-left: 400px;
 }
 
 input {
