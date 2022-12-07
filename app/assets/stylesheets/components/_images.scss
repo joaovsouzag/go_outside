@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-h1 {
+.mosaico h1 {
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
   color: #53B4D2;
   font-weight: bold;
@@ -30,6 +30,7 @@ h1 {
   padding: 1rem;
   margin: 3px;
   font-size: 14px;
+  background-size: cover;
   font-weight: bold;
   text-transform: uppercase;
   color: rgb(66, 66, 66);

@@ -1,21 +1,21 @@
 
- <%= render "shared/navbar_locations" %>
+<%= render "shared/navbar_locations" %>
 <div class="container-show">
 
   <div class="cardy card-show">
-    <%= link_to images_index_path, class: "no-deco" do %>
+    <%= link_to location_images_path(@location), class: "no-deco" do %>
     <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578736641330-3155e606cd40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
       PHOTOS
     </div>
     <% end %>
 
-    <%= link_to videos_index_path, class: "no-deco" do %>
+    <%= link_to location_videos_path(@location), class: "no-deco" do %>
     <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1563784462386-044fd95e9852?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)">
       VIDEOS
     </div>
     <% end %>
 
-    <%= link_to comments_index_path, class: "no-deco" do %>
+    <%= link_to location_comments_path(@location), class: "no-deco" do %>
     <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
       COMMENTS
     </div>
@@ -43,32 +43,29 @@
     <% end %>
     </div>
 
-    <div class="card-checkin">
-      <div>
-        <h3>See who’s there</h3>
-      </div>
-        <div class="row  avatar-checkin">
-          <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
+    <div class="d-flex flex-column align-items-center">
+      <div class="card-checkin">
+        <div>
+          <h3>See who’s there</h3>
+        </div>
+          <div class="row avatar-checkin">
+            <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
               <div class="col-4">
-              <%= cl_image_tag checkin.user.photo.key %>
-            </div>
-          <% end %>
+                <%= cl_image_tag checkin.user.photo.key %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+
+      <div class="container chatroom" data-controller="chatroom-subscription"
+        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+        <h1 class="chat-title"><%=@chatroom.name %>'s chat</h1>
+        <div class="messages overflow-auto" data-chatroom-subscription-target="messages">
+          <% @chatroom.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+        </div>
+        <%= render "chatrooms/show" %>
       </div>
   </div>
 </div>
-
-<%# <div class="container chatroom"> %>
-  <%# <h1>#<%= @chatroom.name %>
-
-  <%# <div class="messages"> %>
-    <%# <% @chatroom.messages.each do |message| %>
-      <%# <div id="message-<%= message.id %>
-        <%# <small>
-          <%# <strong><%= message.user.username %>
-          <%# <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %>
-        <%# </small> %>
-        <%# <p><%= message.content %>
-      <%# </div> %>
-    <%# <% end %>
-  <%# </div> %>
-<%# </div> %>

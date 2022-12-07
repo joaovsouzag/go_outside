@@ -1,4 +1,4 @@
-<div class = "searchbar">
+<div class = "searchbarr">
   <%= render "/shared/search_nav_loc" %>
 </div>
 <div class="background_nav_loc">
@@ -42,15 +42,17 @@
           </div>
           <div class="modal-body">
             <%= simple_form_for([@location, @feedback]) do |f| %>
-            <h2>One Vibing Photo</h2>
-              <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-                <h2>One Vibing Video</h2>
-              <%= f.input :videos, as: :file, input_html: { multiple: true }%>
-                <h2>Describre how things are going!</h2>
+            <%# <h2>One Vibing Photo</h2> %>
+              <%= f.input :photos, as: :file, input_html: { multiple: true }, label:"One Vibing Photo"%>
+                <%# <h2>One Vibing Video</h2> %>
+              <%= f.input :videos, as: :file, input_html: { multiple: true }, label:"One Vibing Video"%>
+                <%# <h2>Describre how things are going!</h2> %>
               <%= f.input :comment, label: "What do you think about place vibe?"%>
-                <h2>Give a rate for it!</h2>
-              <%= f.input :rating, input_html: { min: '0', max: '10', step: '1' }, hint: "0-10"%>
-              <%= f.submit "Submit", :class => "btn-nav-loc"%>
+                <%# <h2>Give a rate for it!</h2> %>
+              <%= f.input :rating, input_html: { min: '0', max: '10', step: '1' },label: "Give a rate for it!", hint: "0-10", required: false %>
+              <div class="button-post-fb">
+                <%= f.submit "Submit", :class => "btn-nav-loc"%>
+              </div>
               <% end %>
           </div>
         </div>
