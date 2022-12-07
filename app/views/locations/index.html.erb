@@ -1,25 +1,27 @@
-<%= render "shared/searchbar" %>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-8">
-      <div class="cards">
-        <div class="location-cards">
-          <% @locations.each do |location| %>
-            <%= link_to location_path(location), class: "no-deco" do %>
-              <div class="card-product-mine">
-                <img class="index-card-mine" src="<%=location.photos%>"/>
-                <div class="card-product-infos-mine">
-                  <h2><b><u><%= location.name %></b></u></h2>
-                  <p> </p>
-                  <p><%= location.address %></p>
-                  <p> </p>
-                  <h2><b>Category: </b><%= location.location_type %></h2>
+<div class="d-flex">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="cards">
+          <div class="location-cards mt-3" >
+            <% @locations.each do |location| %>
+              <%= link_to location_path(location), class: "no-deco" do %>
+                <div class="card-product-mine">
+                  <img class="index-card-mine" src="<%=location.photos%>"/>
+                  <div class="card-product-infos-mine">
+                    <h2><b><u><%= location.name %></b></u></h2>
+                    <p> </p>
+                    <p><%= location.address %></p>
+                    <p> </p>
+                    <h2><b>Category: </b><%= location.location_type %></h2>
+                  </div>
                 </div>
-              </div>
+              <%end %>
             <%end %>
-          <%end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <%= render "shared/searchbar" %>
 </div>
