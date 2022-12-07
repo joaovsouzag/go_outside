@@ -38,7 +38,7 @@
 
 // feedbacks
 .feedback-cards {
-  width: 78%;
+  width: 70%;
 }
 
 .card-prod {
@@ -164,4 +164,27 @@ h3 {
 .row.no-gutter {
   margin-left: 0;
   margin-right: 0;
+}
+
+.chatroom {
+  width: 600px;
+  border: #53B4D2;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  background-image: url("background.png");
+}
+
+.chat-title  {
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  color: #53B4D2;
+  font-weight: bold;
+
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+.messages {
+  height: 400px;
 }
