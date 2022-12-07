@@ -26,7 +26,6 @@
   }
 }
 
-
 .bar-position-loc {
   margin: 0;
   padding: 0;
@@ -68,22 +67,43 @@
 }
 
 .modal {
-  h2{
-    color: #172A30;
-    text-align: center;
-    font-family: $body-font;
-
-  }
+  border-bottom: lightgrey;
+  // h2{
+  //   color: lightgray;
+  //   text-align: center;
+  //   font-family: $body-font;
+  //   font-size: 22px;
+  // }
   .modal-title {
-    color: #172A30;
+    color: lightgray;
+    text-align: center;
   }
+}
+.btn-close {
+  color: lightgray;
+  margin: 0;
+}
+
+.modal-content {
+  background-color: #2D2D2D;
+  opacity: 90%;
+  box-shadow: 0 15px 15px rgba(255, 255, 255, 0.6);
 }
 
 .modal-body {
   justify-content: center;
+  color: lightgray;
+  font-size: 20px;
 }
 
-.buttons-nav-loc{
+.button-post-fb .btn-nav-loc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.buttons-nav-loc {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +119,7 @@
     margin: auto 15px;
     font-family: "Work Sans", "Helvetica", "sans-serif";
     font-size: 30px;
-    color: lightgray;
+    color: white;
   }
 }
 
