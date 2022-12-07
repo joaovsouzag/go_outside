@@ -76,6 +76,14 @@ require "open-uri"
 require "open-uri"
 require "net/http"
 require "json"
+
+puts "cleaning DB"
+Feedback.destroy_all
+CheckIn.destroy_all
+Favorite.destroy_all
+Chatroom.destroy_all
+Location.destroy_all
+
 puts "pushing night clubs locations RJ"
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=night_clubs%20in%20Rio%20de%20janeiro&key=#{ENV['GOOGLE_KEY']}"
 user_serialized = URI.open(url).read
@@ -132,9 +140,13 @@ night_clubs["results"].each do |nc|
   if @client.spot("#{nc["place_id"]}").photos != []
     @spot = @client.spot("#{nc["place_id"]}")
     url = @spot.photos[0].fetch_url(800)
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   else
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   end
 end
 
@@ -150,9 +162,13 @@ night_clubs["results"].each do |nc|
   if @client.spot("#{nc["place_id"]}").photos != []
     @spot = @client.spot("#{nc["place_id"]}")
     url = @spot.photos[0].fetch_url(800)
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   else
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   end
 end
 puts "finished"
