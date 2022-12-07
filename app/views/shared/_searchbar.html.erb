@@ -1,8 +1,15 @@
 <div class="bar-position">
   <form action="<%= locations_path %>" class="search-bar">
+    <select class="form-select" aria-label="Selecione sua festa" name="location_type" id="location_type">
+      <option selected> Location Type</option>
+      <option value="1">Bar</option>
+      <option value="2">Night Club</option>
+  </select>
     <input type="search" name="query" id="query" pattern=".*\S.*" required>
     <button class="search-btn" type="submit">
       <span>Search</span>
     </button>
   </form>
 </div>
+
+

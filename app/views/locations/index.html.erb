@@ -4,12 +4,15 @@
     <div class="col-sm-8">
       <div class="cards">
         <div class="location-cards">
-            <% @locations.each do |location| %>
-              <%= link_to location_path(location), class: "no-deco" do %>
-              <div class="location">
-                <h4><%= location.name %></h4>
-                <p>Address:<%= location.address %></p>
-                <p>Type:<%= location.location_type %></p>
+          <% @locations.each do |location| %>
+            <%= link_to location_path(location), class: "no-deco" do %>
+              <div class="card-product-mine">
+                <img class="index-card-mine" src="<%=location.photos%>"/>
+                <div class="card-product-infos-mine">
+                  <h2><b><%= location.name %></b></h2>
+                  <p>Address:<%= location.address %></p>
+                  <p>Type:<%= location.location_type %></p>
+                </div>
               </div>
             <%end %>
           <%end %>

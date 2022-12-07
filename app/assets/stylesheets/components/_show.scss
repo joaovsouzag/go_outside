@@ -24,7 +24,7 @@
 }
 
 .card-show {
- margin: 30px;
+  margin: 30px;
 }
 
 .card-show :hover {
@@ -38,13 +38,13 @@
 
 // feedbacks
 .feedback-cards {
-  width: 90%;
+  width: 70%;
 }
 
 .card-prod {
   overflow: hidden;
   height: 160px;
-  width: 90%;
+  width: 88%;
   background: #444444;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -101,13 +101,12 @@
  }
 
 
-//See who's in
 
-.checkin-show .card-categ {
-  height: 300px;
-  width: 320px;
-  margin-right: 48px;
-}
+ // .checkin-show .card-categ {
+   //   height: 300px;
+//   width: 320px;
+//   margin-right: 48px;
+// }
 
 h3 {
   margin-bottom: auto;
@@ -132,29 +131,39 @@ h3 {
   height: 70px;
 }
 
+//See who's in
+
 .avatar-checkin {
-  justify-content: space-around;
-  margin-inline: 30px;
+  justify-content: space-between;
+  margin: 25px;
 }
 
 .avatar-checkin img {
-  top: 610px;
+  top: 585px;
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
+  width: 85px;
+  height: 85px;
   margin-top: 18px;
+
  }
 
 .card-checkin {
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 200px;
+  height: 400px;
+  width: 350px;
 }
 
 .card-checkin h3 {
   text-align: center;
   color: white;
   margin-top: 15px;
+  margin-bottom: -15px;
+}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .chatroom {
