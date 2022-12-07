@@ -23,7 +23,6 @@
       </div>
           <div class="remember">
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-          </div>
 
           <div class="button-box">
             <div class="button-form">
@@ -32,7 +31,8 @@
               <%= link_to "Forgot Password", new_password_path(resource_name),  class: "btn",  id: "forgot-btn" %>
             </div>
           </div>
-            <% end %>
+        <% end %>
+        </div>
       </div>
     </div>
   </div>

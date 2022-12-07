@@ -1,21 +1,21 @@
 
- <%= render "shared/navbar_locations" %>
+<%= render "shared/navbar_locations" %>
 <div class="container-show">
 
   <div class="cardy card-show">
-    <%= link_to images_index_path, class: "no-deco" do %>
+    <%= link_to location_images_path(@location), class: "no-deco" do %>
     <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1578736641330-3155e606cd40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
       PHOTOS
     </div>
     <% end %>
 
-    <%= link_to videos_index_path, class: "no-deco" do %>
+    <%= link_to location_videos_path(@location), class: "no-deco" do %>
     <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1563784462386-044fd95e9852?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80)">
       VIDEOS
     </div>
     <% end %>
 
-    <%= link_to comments_index_path, class: "no-deco" do %>
+    <%= link_to location_comments_path(@location), class: "no-deco" do %>
     <div class="card-categ" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
       COMMENTS
     </div>
