@@ -3,7 +3,7 @@ class Location < ApplicationRecord
   has_many :feedbacks
   has_many :users, through: :check_ins
   has_one :chatroom
-  validates :address, :name, presence: true, uniqueness: true
+  # validates :address, :name, presence: true, uniqueness: true
   validates :location_type, presence: true
   has_many :videos, through: :feedbacks
   # validates :photos, presence: true, on: :create

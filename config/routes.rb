@@ -16,8 +16,11 @@ Rails.application.routes.draw do
     resources :images, only: [:index]
     resources :videos, only: [:index]
     resources :comments, only: [:index]
+    resources :chatrooms, only: [:show]
+  end
+
+  resources :chatrooms, only: [:create] do
     resources :messages, only: [:create]
-    resources :chatroom, only: [:create]
   end
 
   resources :users, only: [:show] do

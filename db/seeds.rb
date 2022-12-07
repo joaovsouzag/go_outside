@@ -28,7 +28,6 @@ require "open-uri"
 # Favorite.create!( user_id: "3" , location_id: "2")
 # Favorite.create!( user_id: "4" , location_id: "1")
 
-Chatroom.create(name: "live chat", location_id: "1")
 
 
 # CheckIn.create!( user_id: "1" , location_id: "4")
@@ -89,9 +88,13 @@ night_clubs["results"].each do |nc|
   if @client.spot("#{nc["place_id"]}").photos != []
     @spot = @client.spot("#{nc["place_id"]}")
     url = @spot.photos[0].fetch_url(800)
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   else
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://upload.wikimedia.org/wikipedia/commons/3/32/Wikipedia_space_ibiza%2803%29.jpg")
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Night Club", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://upload.wikimedia.org/wikipedia/commons/3/32/Wikipedia_space_ibiza%2803%29.jpg")
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   end
 end
 
@@ -108,9 +111,13 @@ night_clubs["results"].each do |nc|
   if @client.spot("#{nc["place_id"]}").photos != []
     @spot = @client.spot("#{nc["place_id"]}")
     url = @spot.photos[0].fetch_url(800)
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: url)
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   else
-    Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+    location_new = Location.create!(address: clubs["result"]["formatted_address"], name: clubs["result"]["name"], location_type: "Bar", latitude: nc["geometry"]["location"]["lat"], longitude: nc["geometry"]["location"]["lng"], photos: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xdecoracao.png.pagespeed.ic.R8VcjUk_QU.jpg")
+    chatroom_new = Chatroom.new(name: location_new.name, location: location_new)
+    chatroom_new.save!
   end
 end
 puts "pushing night clubs locations SP"

@@ -59,16 +59,16 @@
 
 <%# <div class="container chatroom"> %>
   <%# <h1>#<%= @chatroom.name %>
-
-  <%# <div class="messages"> %>
-    <%# <% @chatroom.messages.each do |message| %>
-      <%# <div id="message-<%= message.id %>
-        <%# <small>
-          <%# <strong><%= message.user.username %>
-          <%# <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %>
-        <%# </small> %>
-        <%# <p><%= message.content %>
-      <%# </div> %>
-    <%# <% end %>
-  <%# </div> %>
-<%# </div> %>
+  <div class="messages">
+    <% @chatroom.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.username %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+  <%= render "chatrooms/show" %>
+</div>
