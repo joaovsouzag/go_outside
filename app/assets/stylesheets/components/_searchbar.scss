@@ -18,6 +18,14 @@
 // 	line-height: 1.5em;
 // }
 
+.dropdown-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+
+  width: 280px;
+}
+
 input {
 	color: #000000;
 }
