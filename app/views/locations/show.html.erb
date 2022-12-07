@@ -43,32 +43,29 @@
     <% end %>
     </div>
 
-    <div class="card-checkin">
-      <div>
-        <h3>See who’s there</h3>
-      </div>
-        <div class="row  avatar-checkin">
-          <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
+    <div>
+      <div class="card-checkin">
+        <div>
+          <h3>See who’s there</h3>
+        </div>
+          <div class="row avatar-checkin">
+            <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
               <div class="col-4">
-              <%= cl_image_tag checkin.user.photo.key %>
-            </div>
-          <% end %>
+                <%= cl_image_tag checkin.user.photo.key %>
+              </div>
+            <% end %>
+          </div>
       </div>
-  </div>
-</div>
 
-<%# <div class="container chatroom"> %>
-  <%# <h1>#<%= @chatroom.name %>
-  <div class="messages">
-    <% @chatroom.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.username %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
+      <div class="container chatroom" data-controller="chatroom-subscription"
+        data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+        <h1 class="chat-title">Chat with people at <%=@chatroom.name %></h1>
+        <div class="messages overflow-auto" data-chatroom-subscription-target="messages">
+          <% @chatroom.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+        </div>
+        <%= render "chatrooms/show" %>
       </div>
-    <% end %>
   </div>
-  <%= render "chatrooms/show" %>
 </div>
