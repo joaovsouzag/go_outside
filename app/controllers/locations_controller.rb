@@ -26,4 +26,11 @@ class LocationsController < ApplicationController
 
     # @check_favorite = current_user.favorites.all? { |favorite| favorite.location_id != @location.id }
   end
+
+
+  def myfavorites
+    @favorites = Favorite.where(user_id: current_user.id)
+    authorize @favorites
+  end
+
 end
