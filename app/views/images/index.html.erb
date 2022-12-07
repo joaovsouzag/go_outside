@@ -1,154 +1,170 @@
 <div class="mosaico">
   <h1>PHOTOS</h1>
     <div class="grid-layout">
-    <% if @feedbacks[0..2] != [] %>
-    <% @feedbacks[0..2].each do |fb| %>
-      <div class="grid-item" style="background-image: url('<%= url_for(fb.photos.first) %>');"></div>
+      <% if @feedbacks[1] != nil %>
+        <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[1].photos.first) %>');"></div>
+      <% else %>
+        <div class="grid-item">Waiting...</div>
       <% end %>
-    <% else %>
-    <div class="grid-item">Waiting...</div>
-    <div class="grid-item">Waiting...</div>
-    <div class="grid-item">Waiting...</div>
-    <% end %>
-    <% if @feedbacks[3] != [] %>
-      <div class="grid-item span-3" style="background-image: url('<%= url_for(@feedbacks[3].photos.first) %>');"></div>
+      <% if @feedbacks[2] != nil %>
+        <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[2].photos.first) %>');"></div>
+      <% else %>
+        <div class="grid-item">Waiting...</div>
+      <% end %>
+      <% if @feedbacks[3] != nil %>
+        <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[3].photos.first) %>');"></div>
+      <% else %>
+        <div class="grid-item">Waiting...</div>
+      <% end %>
+    <% if @feedbacks[4] != nil %>
+      <div class="grid-item span-3" style="background-image: url('<%= url_for(@feedbacks[4].photos.first) %>');"></div>
     <% else %>
       <div class="grid-item span-3">Waiting...</div>
     <% end %>
-     <% if @feedbacks[4] != [] %>
+     <% if @feedbacks[4] != nil %>
       <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[4].photos.first) %>');"></div>
       <% else %>
     <div class="grid-item">Waiting...</div>
     <% end %>
-     <% if @feedbacks[5] != [] %>
+     <% if @feedbacks[5] != nil %>
       <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[5].photos.first) %>');"></div>
       <% else %>
         <div class="grid-item span-2">Waiting...</div>
       <% end %>
-      <% if @feedbacks[6..9].size != [] %>
-         <% @feedbacks[6..9].each do |fb| %>
-            <div class="grid-item" style="background-image: url('<%= url_for(fb.photos.first) %>');"></div>
-      <% end %>
-      <% else %>
-      <div class="grid-item">item 6</div>
-      <div class="grid-item">item 7</div>
-      <div class="grid-item">item 8</div>
-      <div class="grid-item">item 9</div>
-      <% end %>
+      <% if @feedbacks[6] != nil %>
+            <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[6].photos.first) %>');"></div>
+          <% else %>
+            <div class="grid-item">Waiting...</div>
+          <% end %>
+       <% if @feedbacks[7] != nil %>
+            <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[7].photos.first) %>');"></div>
+          <% else %>
+            <div class="grid-item">Waiting...</div>
+          <% end %>
+         <% if @feedbacks[8] != nil %>
+            <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[8].photos.first) %>');"></div>
+          <% else %>
+            <div class="grid-item">Waiting...</div>
+          <% end %>
+         <% if @feedbacks[9] != nil %>
+            <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[9].photos.first) %>');"></div>
+          <% else %>
+            <div class="grid-item">Waiting...</div>
+          <% end %>
          <% if @feedbacks[10] != nil %>
          <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[10].photos.first) %>');"></div>
           <% else %>
-           <div class="grid-item span-2 ">item 10</div>
+           <div class="grid-item span-2 ">Waiting...</div>
           <% end %>
           <% if @feedbacks[11] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[11].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item">item 11</div>
+            <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[12] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[12].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item">item 12</div>
+            <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[13] != nil %>
             <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[13].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item span-2">item 13</div>
+            <div class="grid-item span-2">Waiting...</div>
           <% end %>
           <% if @feedbacks[14] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[14].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item">item 14</div>
+            <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[15] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[15].photos.first) %>');"></div>
           <% else %>
-          <div class="grid-item">item 15</div>
+          <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[16] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[16].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item">item 16</div>
+            <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[17] != nil %>
           <div class="grid-item span-3" style="background-image: url('<%= url_for(@feedbacks[17].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item span-3">item 18</div>
+            <div class="grid-item span-3">Waiting...</div>
           <% end %>
           <% if @feedbacks[18] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[18].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item">item 19</div>
+            <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[19] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[19].photos.first) %>');"></div>
           <% else %>
-          <div class="grid-item">item 20</div>
+          <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[20] != nil %>
           <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[20].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item span-2">item 21</div>
+      <div class="grid-item span-2">Waiting...</div>
           <% end %>
           <% if @feedbacks[21] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[21].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item 22</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[22] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[22].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item 23</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[23] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[23].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item 24</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[24] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[24].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item 25</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[25] != nil %>
           <div class="grid-item span-3" style="background-image: url('<%= url_for(@feedbacks[25].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item span-3">item 26</div>
+      <div class="grid-item span-3">Waiting...</div>
           <% end %>
           <% if @feedbacks[26] != nil %>
           <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[26].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item 27</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[27] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[27].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item">item 28</div>
+            <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[28] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[28].photos.first) %>');"></div>
           <% else %>
-          <div class="grid-item">item</div>
+          <div class="grid-item">Waiting...</div>
           <% end %>
           <% if @feedbacks[29] != nil %>
             <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[29].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item span-2">item</div>
+            <div class="grid-item span-2">Waiting...</div>
           <% end %>
            <% if @feedbacks[30] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[30].photos.first) %>');"></div>
           <% else %>
-        <div class="grid-item">item7</div>
+        <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[31] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[31].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[32] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[32].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[33] != nil %>
             <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[33].photos.first) %>');"></div>
@@ -163,82 +179,82 @@
            <% if @feedbacks[35] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[35].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[36] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[36].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[37] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[37].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[38] != nil %>
             <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[38].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item span-2">item</div>
+            <div class="grid-item span-2">Waiting...</div>
           <% end %>
            <% if @feedbacks[39] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[39].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[40] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[40].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[41] != nil %>
             <div class="grid-item span-2" style="background-image: url('<%= url_for(@feedbacks[41].photos.first) %>');"></div>
           <% else %>
-            <div class="grid-item span-2">item</div>
+            <div class="grid-item span-2">Waiting...</div>
           <% end %>
            <% if @feedbacks[42] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[42].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[43] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[43].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[44] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[44].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[45] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[45].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[46] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[46].photos.first) %>');"></div>
           <% else %>
-       <div class="grid-item">item7</div>
+       <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[47] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[47].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[48] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[48].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[49] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[49].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
            <% if @feedbacks[50] != nil %>
             <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[50].photos.first) %>');"></div>
           <% else %>
-      <div class="grid-item">item7</div>
+      <div class="grid-item">Waiting...</div>
           <% end %>
       </div>
 </div>
