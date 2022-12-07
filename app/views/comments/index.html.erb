@@ -1,13 +1,13 @@
 <div class="card-comment">
   <h1>COMMENTS</h1>
     <% @location.feedbacks.each do |post| %>
+
     <div class="card-product">
-      <div class="avatar-comment">
-        <%= cl_image_tag post.user.photo.key %>
-      </div>
+      <%= cl_image_tag post.user.photo.key, class: "avatar-comment" %>
       <div class="card-product-infos">
         <p><%= post.comment %></p>
       </div>
     </div>
+
     <% end %>
 </div>
