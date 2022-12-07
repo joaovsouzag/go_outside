@@ -10,19 +10,18 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <div class="dropdown  d-flex align-items-center me-4">
+          <div class="dropdown d-flex align-items-center me-4">
             <%= image_tag "pngwing.com.png", class: "locimg" %>
             <li class="nav-item dropdown textcor" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Rio de Janeiro
+              City
             </li>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">São Paulo</a></li>
-              <li><a class="dropdown-item" href="#">Belo Horizonte</a></li>
-              <li><a class="dropdown-item" href="#">Salvador</a></li>
+              <li><a class="dropdown-item" href="/locations?location_type=Location+Type&query=rio+de+janeiro">Rio de Janeiro</a></li>
+              <li><a class="dropdown-item" href="/locations?location_type=Location+Type&query=São+paulo">São Paulo</a></li>
             </ul>
-             <li class="nav-item active">
+             <%# <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
+          <%# </li> %>
           <li class="nav-item dropdown">
           <% if user_signed_in? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
