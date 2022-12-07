@@ -35,14 +35,21 @@ body {
 .location-cards{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 120px;
+  height: 400px;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
+    a {
+      text-decoration: none;
+    }
 }
+
+
+
 .card-product-mine {
   overflow: hidden;
-  height: 120px;
-  background: white;
+  height: 180px;
+  color: whitesmoke;
+  background: rgb(0, 0, 0);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -57,18 +64,19 @@ body {
 
 .card-product-mine img {
   height: 100%;
-  width: 120px;
+  width: 150px;
   object-fit: cover;
 }
 
 .card-product-mine h2 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product-mine p {
-  font-size: 12px;
+  font-size: 10px;
+  text-align:justify;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
