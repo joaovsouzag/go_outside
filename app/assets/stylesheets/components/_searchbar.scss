@@ -18,18 +18,21 @@
 // 	line-height: 1.5em;
 // }
 
-.loc-address-drop {
+.seach-location {
+  margin: 0 80%;
+  margin-top: 3em;
   width: 200px;
-}
-.loc-type-drop {
-  width: 200px;
+  padding: 10px;
 }
 
 .dropdown-bar {
-  display: grid;
+  // margin: 0 95%;
+  display: flex;
+  width: 200px;
   grid-template-columns: 1fr 1fr;
-  margin-left: 400px;
 }
+
+
 
 input {
 	color: #000000;
