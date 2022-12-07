@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :locations, only: [:index, :show] do
+    collection do
+      get :myfavorites
+    end
     resources :feedbacks, only: [:new, :create, :destroy]
     resources :check_ins, only: [:index, :create, :destroy]
     resources :favorites, only: [:index, :create, :destroy]
