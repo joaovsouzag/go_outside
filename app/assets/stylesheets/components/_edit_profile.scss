@@ -1,0 +1,81 @@
+.edit-box {
+  position: relative;
+  width: 400px;
+  padding: 40px;
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  margin: auto;
+}
+
+.edit-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.edit-box .us-box {
+  position: relative;
+}
+
+.edit-box .form-inputs input {
+  width: 100%;
+  // padding: 10px 0;
+  font-size: 16px;
+  color: #D7D7D7;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #00bcd4;
+  outline: none;
+  background: transparent;
+}
+
+.edit-box .form-inputs label {
+  // position: absolute;
+  // top:0;
+  // left: 0;
+  padding: 3px 0;
+  font-size: 15px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+  margin-left: 0;
+}
+
+.form-text {
+  margin-top: 0.25rem;
+  font-size: 12px;
+  color: #727272;
+}
+
+.buttom-form-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap
+}
+
+.buttom-form-edit :hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+#cancel-btn {
+  margin-top: 10px;
+  width: 265px;
+}
+
+#back-btn {
+  width: 120px;
+}
+
+// .btn {
+//   width: 120px;
+// }
