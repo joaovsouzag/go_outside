@@ -1,33 +1,13 @@
 <div class="card-comment">
   <h1>COMMENTS</h1>
-  <div class="card-product">
-    <img src="https://kitt.lewagon.com/placeholder/users/barbaracarloni" />
+    <% @location.feedbacks.each do |post| %>
+    <div class="card-product">
+      <div class="avatar-comment">
+        <%= cl_image_tag post.user.photo.key %>
+      </div>
       <div class="card-product-infos">
-      <p>Festa ta boa, podem vir!</p>
+        <p><%= post.comment %></p>
+      </div>
     </div>
-  </div>
-  <div class="card-product">
-    <img src="https://kitt.lewagon.com/placeholder/users/joaovsouzag" />
-      <div class="card-product-infos">
-      <p>Tava uma fila para entrar, mas depois liberou geral...</p>
-    </div>
-  </div>
- <div class="card-product">
-    <img src="https://kitt.lewagon.com/placeholder/users/devaleixo" />
-      <div class="card-product-infos">
-      <p>Tá 100,00 com consumo pra entrar!</p>
-    </div>
-  </div>
-   <div class="card-product">
-    <img src="https://kitt.lewagon.com/placeholder/users/davidFpena" />
-      <div class="card-product-infos">
-      <p>Muitas chicas guapas! Até desinstalei o tinder! Só vem!</p>
-    </div>
-  </div>
-  <div class="card-product">
-    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-      <div class="card-product-infos">
-      <p>Bora festar!!!</p>
-    </div>
-  </div>
+    <% end %>
 </div>

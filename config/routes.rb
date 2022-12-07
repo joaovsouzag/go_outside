@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'comments/index'
-  get 'videos/index'
-  get 'images/index'
+  # get 'comments/index'
+  # get 'videos/index'
+  # get 'images/index'
   get 'users/show'
   devise_for :users
   root to: "locations#index"
