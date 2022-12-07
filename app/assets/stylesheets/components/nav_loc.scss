@@ -92,12 +92,14 @@
 .loc-name-img {
   display: flex;
   margin-right: 17px;
+  margin-left: 20px;
   margin-bottom: 10px;
   h2 {
     margin-bottom: 0px;
     margin: auto 15px;
-    font-family: Inter;
+    font-family: "Work Sans", "Helvetica", "sans-serif";
     font-size: 30px;
+    color: lightgray;
   }
 }
 
@@ -106,6 +108,7 @@
 }
 
 .avatar-large {
-  width: 78px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
 }
