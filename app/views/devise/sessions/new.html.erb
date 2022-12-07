@@ -28,11 +28,11 @@
           <div class="button-box">
             <div class="button-form">
               <%= f.button :submit, "Log in" %>
+            <% end %>
               <%= link_to "Sign Up", new_user_registration_path,  class: "btn",  id: "signup-btn" %>
               <%= link_to "Forgot Password", new_password_path(resource_name),  class: "btn",  id: "forgot-btn" %>
             </div>
           </div>
-            <% end %>
       </div>
     </div>
   </div>

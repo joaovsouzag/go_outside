@@ -13,4 +13,5 @@ class FeedbackPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
 end
