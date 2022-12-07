@@ -2,6 +2,20 @@
   display: grid;
   color: whitesmoke;
   grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 10px;
   grid-gap: 16px;
   padding: 20px;
+  align-items: center;
+}
+
+.location {
+  background-color: #0a0a0a;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.locations-images img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
 }

@@ -4,17 +4,22 @@
 	margin: 0;
 	padding: 0;
 }
+.bar-position {
+  margin-left: 1000px;
+  width: 280px;
+}
+
 :root {
 	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
 }
-button, input {
+// button,
+input {
 	font: 1em Hind, sans-serif;
 	line-height: 1.5em;
 }
 
 input {
-	color: #171717;
-
+	color: #fdfcfc;
 }
 .search-bar {
 	display: flex;

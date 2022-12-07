@@ -23,84 +23,42 @@
   </div>
 
   <div class="feed-check">
-  <div class="feedback-cards">
-    <div class="card-prod">
-      <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
-        <div class="box-nickname">
-          <h2>Babu</h2>
-          <div class="card-prod-infos">
-            <h3>Comments:</h3>
-            <p>Festa tooop! Só venham!</p>
-          </div>
-        </div>
-      <div class="avatar-show">
-        <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/barbaracarloni" />
-      </div>
-    </div>
 
-    <div class="card-prod">
-      <img src="https://images.unsplash.com/photo-1581417478175-a9ef18f210c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
-        <div class="box-nickname">
-          <h2>JohnyV</h2>
-          <div class="card-prod-infos">
-            <h3>Comments:</h3>
-            <p>Tava uma fila para entrar, mas depois liberou geral...</p>
+    <div class="feedback-cards">
+      <% @location.feedbacks.each do |post| %>
+
+      <div class="card-prod">
+        <%= cl_image_tag post.photos[0].key %>
+          <div class="box-nickname">
+            <h2><%= post.user.username %></h2>
+            <div class="card-prod-infos">
+              <h3>Comments:</h3>
+              <p><%= post.comment %></p>
+            </div>
           </div>
-        </div>
         <div class="avatar-show">
-          <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/joaovsouzag" />
+          <%= cl_image_tag post.user.photo.key, class:"responsive-img" %>
         </div>
       </div>
-
-
-       <div class="card-prod">
-      <img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=829&q=80" />
-        <div class="box-nickname">
-          <h2>DevAleixo</h2>
-          <div class="card-prod-infos">
-            <h3>Comments:</h3>
-            <p>Tá 100,00 com consumo pra entrar! Festa massaaa..</p>
-          </div>
-        </div>
-        <div class="avatar-show">
-          <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/devaleixo" />
-        </div>
-      </div>
-
-
-    <div class="card-prod">
-      <img src="https://images.unsplash.com/photo-1611105849269-e3c1815fea47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
-        <div class="box-nickname">
-          <h2>DavidCarioca</h2>
-          <div class="card-prod-infos">
-            <h3>Comments:</h3>
-            <p>Muitas chicas guapas! Até desinstalei o tinder! Hoje vai ter putariaaa!</p>
-          </div>
-        </div>
-        <div class="avatar-show">
-          <img class="responsive-img" src="https://kitt.lewagon.com/placeholder/users/davidfpena" />
-        </div>
-      </div>
+    <% end %>
     </div>
 
     <div class="card-checkin">
       <div>
         <h3>See who’s there</h3>
       </div>
-        <div class="row avatar-checkin">
+        <div class="row  avatar-checkin">
           <% CheckIn.all.where(location_id: params[:id]).each do |checkin| %>
               <div class="col-4">
               <%= cl_image_tag checkin.user.photo.key %>
             </div>
           <% end %>
       </div>
-    </div>
   </div>
 </div>
 
-<div class="container chatroom">
-  <h1>#<%= @chatroom.name %></h1>
-
+<%# <div class="container chatroom"> %>
+  <%# <h1>#<%= @chatroom.name %>
   <div class="messages">
     <% @chatroom.messages.each do |message| %>
       <div id="message-<%= message.id %>">
