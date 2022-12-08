@@ -32,50 +32,53 @@ body {
   background-color: #2D2D2D;
 }
 
+
 .location-cards{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 400px;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: center;
+  align-items: center; //vertica
+  justify-content: center; //horizontal
     a {
       text-decoration: none;
     }
 }
 
-
-
 .card-product-mine {
   overflow: hidden;
   height: 180px;
+  width: 350px;
   color: whitesmoke;
   background: rgb(0, 0, 0);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(228, 228, 228, 0.2);
   display: flex;
-  align-items: center;
+  border-radius: 5px;
 }
 
-// .index-card-img{
-//   height: 70px;
-//   width: 70px;
-//   object-fit: cover;
-//   border-radius: 0;
+// .index-card-mine{
+//   height: 180px;
+//   width: 150px;
+//   background-size: cover;
 // }
 
 .card-product-mine img {
   height: 100%;
   width: 150px;
+  background-color: rgb(0, 0, 0);;
   object-fit: cover;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-product-mine h2 {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-product-mine p {
-  font-size: 10px;
+  font-size: 12px;
   text-align:justify;
   line-height: 1.4;
   opacity: .7;
