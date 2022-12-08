@@ -5,7 +5,7 @@
   background-position: center;
   height: 600px;
   width: 100%;
-  position: relative;
+  // position: relative;
   // background-position-y: top;
   // background-position-x: center;
 }
@@ -40,6 +40,7 @@
   border-radius: 9px;
   display: flex;
   justify-content: center;
+  box-shadow: 0 0 15px rgb(255, 255, 255);
   align-items: center;
   transition: box-shadow 0.2s;
 }
@@ -49,6 +50,7 @@
 .btn-homeg:hover {
   box-shadow: 0 0 15px rgb(255, 255, 255);
 }
+
 
 #disco {
   width: 36.97px;
@@ -73,7 +75,7 @@
 #maocel {
   width: 400px;
   position: absolute;
-  top: 0px;
+  top: 50px;
   // left: 0%;
 }
 
@@ -209,11 +211,14 @@
 }
 
 #btn-last {
-  left: 60px;
+  right: 50px;
   bottom: -1450px;
   position: absolute;
+  width: 200px;
+  height: 60px;
+  margin: 0 auto;
+  margin-right: 110px;
 }
-
 
 // #btn-last :hover {
 //   box-shadow: 0 0 15px rgb(255, 255, 255);

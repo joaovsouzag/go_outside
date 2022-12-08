@@ -36,6 +36,7 @@ class LocationsController < ApplicationController
 
   def myfavorites
     @favorites = Favorite.where(user_id: current_user.id)
+    @locations = @favorites.map { |fv| fv.location}
     authorize @favorites
   end
 

@@ -1,0 +1,68 @@
+.container-index {
+  width: 95%;
+  display: flex;
+  margin: 0 auto;
+
+}
+
+.location-cards{
+  // // width: 80%;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // height: 400px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center; //vertica
+  justify-content: center; //horizontal
+    a {
+      text-decoration: none;
+    }
+}
+
+.card-product-mine {
+  overflow: hidden;
+  height: 150px;
+  width: 350px;
+  color: lightgray;
+  background: rgb(0, 0, 0);
+  box-shadow: 0 0 20px rgba(230, 230, 230, 0.2);
+  display: flex;
+  border-radius: 5px;
+}
+
+// .index-card-mine{
+//   height: 180px;
+//   width: 150px;
+//   background-size: cover;
+// }
+.index-card-mine img {
+  height: 150px;
+  width: 150px;
+}
+
+.card-product-mine img {
+  height: 150px;
+  width: 150px;
+  // background-color: rgb(0, 0, 0);;
+  // object-fit: cover;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.card-product-mine h2 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product-mine p {
+  font-size: 12px;
+  text-align:justify;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-mine .card-product-infos-mine {
+  padding: 12px;
+}
