@@ -81,6 +81,7 @@ puts "cleaning DB"
 Feedback.destroy_all
 CheckIn.destroy_all
 Favorite.destroy_all
+Message.destroy_all
 Chatroom.destroy_all
 Location.destroy_all
 
