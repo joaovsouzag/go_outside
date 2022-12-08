@@ -1,6 +1,11 @@
 <div class="mosaico">
   <h1>PHOTOS</h1>
     <div class="grid-layout">
+      <% if @feedbacks[0] != nil %>
+        <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[0].photos.first) %>');"></div>
+        <% else %>
+        <div class="grid-item span-3">Waiting...</div>
+      <% end %>
       <% if @feedbacks[1] != nil %>
         <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[1].photos.first) %>');"></div>
       <% else %>
@@ -19,11 +24,6 @@
     <% if @feedbacks[4] != nil %>
       <div class="grid-item span-3" style="background-image: url('<%= url_for(@feedbacks[4].photos.first) %>');"></div>
     <% else %>
-      <div class="grid-item span-3">Waiting...</div>
-    <% end %>
-     <% if @feedbacks[4] != nil %>
-      <div class="grid-item" style="background-image: url('<%= url_for(@feedbacks[4].photos.first) %>');"></div>
-      <% else %>
     <div class="grid-item">Waiting...</div>
     <% end %>
      <% if @feedbacks[5] != nil %>

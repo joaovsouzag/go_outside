@@ -5,38 +5,38 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
           <%= f.error_notification %>
 
-        <div class="form-inputs">
-          <div>
-            <%= f.input :username,
-                        # placeholder: 'username',
-                        required: true %>
-            <%= f.input :email,
-                        # placeholder: 'user@domain.com',
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
+          <div class="form-inputs">
+            <div>
+              <%= f.input :username,
+                          # placeholder: 'username',
+                          required: true %>
+              <%= f.input :email,
+                          # placeholder: 'user@domain.com',
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" }%>
+            </div>
+            <div>
+              <%= f.input :password,
+                          # placeholder: 'password',
+                          required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                        # placeholder: 'confirm password',
+                          required: true,
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div>
+              <%= f.input :birthdate, as: :date, html5: true,
+                          required: true %>
+            </div>
+            <div>
+              <%= f.input :photo, as: :file,
+                          # placeholder: 'password',
+                          required: true %>
+            </div>
           </div>
-          <div>
-            <%= f.input :password,
-                        # placeholder: 'password',
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                       # placeholder: 'confirm password',
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
-           </div>
-          <div>
-            <%= f.input :birthdate, as: :date, html5: true,
-                        required: true %>
-          </div>
-          <div>
-            <%= f.input :photo, as: :file,
-                        # placeholder: 'password',
-                        required: true %>
-          </div>
-        </div>
 
           <div class="button-box">
             <div class="buttom-form">
