@@ -41,11 +41,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: box-shadow 0.2s;
 }
 
-// .btn-homeg :hover {
-//   box-shadow: 0 0 15px rgb(255, 255, 255);
-// }
+
+
+.btn-homeg:hover {
+  box-shadow: 0 0 15px rgb(255, 255, 255);
+}
 
 #disco {
   width: 36.97px;
@@ -78,7 +81,7 @@
   width: 800px;
   position: absolute;
   top: 600px;
-  left: 20%;
+  left: 22%;
   opacity: 85%;
   // border-radius: 5%;
   // border-bottom: black;
@@ -93,7 +96,7 @@
 
 #header1 {
   margin-top: 120px;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
@@ -210,6 +213,7 @@
   bottom: -1450px;
   position: absolute;
 }
+
 
 // #btn-last :hover {
 //   box-shadow: 0 0 15px rgb(255, 255, 255);

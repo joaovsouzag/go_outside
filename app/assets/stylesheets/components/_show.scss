@@ -174,6 +174,7 @@ h3 {
   border-radius: 5px;
   background-image: url("background.png");
   margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .chat-title  {
@@ -189,4 +190,8 @@ h3 {
 
 .messages {
   height: 400px;
+}
+
+.white-text {
+  color: white;
 }

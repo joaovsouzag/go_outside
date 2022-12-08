@@ -1,26 +1,26 @@
 <div class="bar-position">
   <form action="<%= locations_path %>" class="search-bar">
-  <div class="search-location">
-    <div class="dropdown-bar">
-      <div class="loc-type-drop">
-        <select class="form-select" aria-label="Selecione sua festa" name="location_type" id="location_type">
-          <option selected>Location Type</option>
-          <option value="Bar">Bar</option>
-          <option value="Night Club">Night Club</option>
-        </select>
+    <div class="search-location">
+      <div class="dropdown-bar">
+        <div class="loc-type-drop">
+          <select class="form-select" aria-label="Selecione sua festa" name="location_type" id="location_type">
+            <option selected>Location Type</option>
+            <option value="Bar">Bar</option>
+            <option value="Night Club">Night Club</option>
+          </select>
+        </div>
+        <div class="loc-address-drop">
+          <select class="form-select" aria-label="Selecione sua festa" name="address" id="location_type">
+            <option selected>Address</option>
+            <option value="Rio de Janeiro">Rio de Janeiro</option>
+            <option value="São Paulo">São Paulo</option>
+          </select>
+        </div>
       </div>
-      <div class="loc-address-drop">
-        <select class="form-select" aria-label="Selecione sua festa" name="address" id="location_type">
-          <option selected>Address</option>
-          <option value="Rio de Janeiro">Rio de Janeiro</option>
-          <option value="São Paulo">São Paulo</option>
-        </select>
-      </div>
+      <input type="search" name="query" id="query" pattern=".*\S.*">
+      <button class="searchr-btn" type="submit">
+        <span>Search</span>
+      </button>
     </div>
-    <input type="search" name="query" id="query" pattern=".*\S.*">
-    <button class="searchr-btn" type="submit">
-      <span>Search</span>
-    </button>
-  </div>
   </form>
 </div>
