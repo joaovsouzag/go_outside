@@ -1,1 +1,27 @@
-<h1>teste</h1>
+<div class="d-flex">
+  <div class="container">
+    <div class="row justify-content-center">
+  <h2 class = "mt-3" id="title-favorites">My Favorites</h2>
+      <div class="col-sm-8">
+        <div class="cards">
+          <div class="location-cards mt-3" >
+            <% @locations.each do |location| %>
+              <%= link_to location_path(location), class: "no-deco" do %>
+                <div class="card-product-mine">
+                  <img class="index-card-mine" src="<%=location.photos%>"/>
+                  <div class="card-product-infos-mine">
+                    <h2><b><u><%= location.name %></b></u></h2>
+                    <p> </p>
+                    <p><%= location.address %></p>
+                    <p> </p>
+                    <h2><b>Category: </b><%= location.location_type %></h2>
+                  </div>
+                </div>
+              <%end %>
+            <%end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
