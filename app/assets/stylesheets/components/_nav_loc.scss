@@ -20,6 +20,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  color: white;
   a {
     text-decoration: none;
     color: white;
@@ -129,6 +130,8 @@
 
 .btn-favorite {
   background-color: #2D2D2D;
+  border: 0;
+  padding: 0;
 }
 
 .avatar-large {
