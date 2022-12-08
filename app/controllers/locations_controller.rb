@@ -15,8 +15,8 @@ class LocationsController < ApplicationController
     # end
 
     @locations = @locations.search_by_name_and_address(params[:query]) if params[:query].present?
-    @locations = @locations.search_by_name_and_address(params[:address]) if params[:address] != "Address"
-    @locations = @locations.search_by_location_type(params[:location_type]) if params[:location_type] != "Location Type"
+    @locations = @locations.search_by_name_and_address(params[:address]) if params[:address].present? && params[:address] != "Address"
+    @locations = @locations.search_by_location_type(params[:location_type]) if params[:location_type].present? && params[:location_type] != "Location Type"
 
 
   end
