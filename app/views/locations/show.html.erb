@@ -59,7 +59,7 @@
 
       <div class="container chatroom" data-controller="chatroom-subscription"
         data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-        <h1 class="chat-title">Chat with people at <%=@chatroom.name %></h1>
+        <h1 class="chat-title">Chat at <%=@chatroom.name %></h1>
         <div class="messages overflow-auto" data-chatroom-subscription-target="messages">
           <% @chatroom.messages.each do |message| %>
           <%= render "messages/message", message: message %>
