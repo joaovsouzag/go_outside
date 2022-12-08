@@ -1,18 +1,38 @@
 // Specific CSS for your home-page
 .hero {
-  background-image: url("hero.png");
+  background-image: url("background-principal.jpg");
+  background-size: cover;
+  background-position: center;
   height: 600px;
-  width: auto;
-  background-position-y: top;
-  background-position-x: center;
+  width: 100%;
+  position: relative;
+  // background-position-y: top;
+  // background-position-x: center;
 }
 
-#btn-home {
-  position: absolute;
+.container-page {
+  position: relative;
+  bottom: -120px;
+}
+
+.hero h3 {
+  color:#53B4D2;
+  text-align: end;
+  margin-right: 110px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  color: white;
+  text-align: end;
+  margin-right: 110px;
+}
+
+.hero #btn-home {
   width: 200px;
   height: 60px;
-  top: 400px;
-  right: 65px;
+  margin: 0 auto;
+  margin-right: 110px;
 }
 
 .btn-homeg {
@@ -23,6 +43,10 @@
   align-items: center;
 }
 
+// .btn-homeg :hover {
+//   box-shadow: 0 0 15px rgb(255, 255, 255);
+// }
+
 #disco {
   width: 36.97px;
   height: auto;
@@ -32,7 +56,7 @@
 }
 
 #btn-text {
-
+  text-decoration: none;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
@@ -40,8 +64,14 @@
   line-height: 22px;
   letter-spacing: -0.408px;
   margin: 0;
-
   color: #FFFFFF;
+}
+
+#maocel {
+  width: 400px;
+  position: absolute;
+  top: 0px;
+  // left: 0%;
 }
 
 #infohome {
@@ -49,6 +79,9 @@
   position: absolute;
   top: 600px;
   left: 20%;
+  opacity: 85%;
+  // border-radius: 5%;
+  // border-bottom: black;
 }
 
 #usefilter {
@@ -59,16 +92,15 @@
 }
 
 #header1 {
-  margin-top: 125px;
-
+  margin-top: 120px;
+  margin-bottom: 40px;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 150%;
-  /* identical to box height, or 36px */
-  width: auto;
-  height: 36px;
+  // width: 186px;
+  // height: 36px;
   letter-spacing: 0.08em;
   color: #FFFFFF;
 }
@@ -116,14 +148,13 @@
   font-size: 16px;
   line-height: 150%;
   text-align: center;
-
   color: #CECECE;
-  }
+}
 
 #aboutus {
-  height: 600px;
+  height: 450px;
   width: 100%;
-  background: #2D2D2D;
+  background-color: #101010;
   display: flex;
 }
 
@@ -136,7 +167,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px;
+  padding-inline: 40px;
 }
 
 #aboutus1 {
@@ -145,10 +176,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 150%;
-  /* identical to box height, or 30px */
-
   letter-spacing: 0.08em;
-
   color: #53B4D2;
 }
 
@@ -158,9 +186,6 @@
   font-weight: 700;
   font-size: 30px;
   line-height: 39px;
-  /* identical to box height */
-
-
   color: #FFFFFF;
 }
 
@@ -170,9 +195,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  /* or 24px */
-
-
   color: #CBCBCB;
 }
 
@@ -188,3 +210,7 @@
   bottom: -1450px;
   position: absolute;
 }
+
+// #btn-last :hover {
+//   box-shadow: 0 0 15px rgb(255, 255, 255);
+// }
